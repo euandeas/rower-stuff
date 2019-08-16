@@ -12,7 +12,6 @@ namespace RowerStuff
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            //test comment
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
