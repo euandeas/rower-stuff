@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/howToUseCard"
+            cardview:cardElevation="4dp"
+            cardview:cardCornerRadius="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <TextView
+                    android:text="How To Use"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/howToUseLabel"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
+                    android:textStyle="italic"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:text="Simply select your desired tool or calculator and then fill out any of the required details. Once you have filled in all the information needed simply click the calculate button and it will give you your desired result. To start again hold down the calculate button to clear the data you entered.\n\nUse these tools to help keep track of your progress and other important data coaches need, and also help set new goals for the future.\n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/howToUseText"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aboutCard"
+            cardview:cardElevation="4dp"
+            cardview:cardCornerRadius="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <TextView
+                    android:text="About"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/aboutLabel"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp"
+                    android:textStyle="italic"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:text="My name is Euan and i from the UK. I am a young developer who also happens to row . I decided to make this tool not only to further my development skills but also as something me and my teammates would use during the season.\n\nThis app started development in 2018 and due to important exams version 2 only started in the summer of 2019. I hope you enjoy the app and there are more essential tools on the way.\n\nPace, watts, weight adjustment and VO2 formulas provided by Concept 2\n\nPlease send any bugs or suggestions to euandeasapps@gmail.com\n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/howToUseText"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:text="Version 2.1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/versionLabel"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="8sp"
+            android:gravity="center_horizontal|bottom"
+            android:textColor="#ff434343" />
+    </LinearLayout>
+</ScrollView>

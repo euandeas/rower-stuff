@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Rower Stuff</string>
+    <string name="action_settings">Settings</string>
+    <string name="banner_ad_unit_id">ca-app-pub-6671601320564750/3636554309</string>
+    <string-array name="weightUnits_array">
+      <item>lb</item>
+      <item>kg</item>
+    </string-array>
+    <string-array name="gender_array">
+      <item>Male</item>
+      <item>Female</item>
+    </string-array>
+    <string-array name="trainingLvl_array">
+      <item>High</item>
+      <item>Low</item>
+    </string-array>
+</resources>

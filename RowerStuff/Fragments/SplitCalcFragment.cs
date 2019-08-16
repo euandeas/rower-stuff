@@ -1,0 +1,179 @@
+﻿using System;
+using Android.Gms.Ads;
+using Android.OS;
+using Android.Support.V7.App;
+using Android.Support.V7.View.Menu;
+using Android.Support.V7.Widget;
+using Android.Views;
+using Android.Widget;
+using Fragment = Android.Support.V4.App.Fragment;
+
+namespace RowerStuff.Fragments
+{
+    public class SplitCalcFragment : Fragment
+    {
+        EditText enteredDistance;
+        EditText enteredSplitMin;
+        EditText enteredSplitSec;
+        EditText enteredTimeMin;
+        EditText enteredTimeSec;
+        Button calculateButton;
+        ActionBar supportbar;
+        CardView distanceCard;
+        CardView splitCard;
+        CardView timeCard;
+        string result;
+
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            // Use this to return your custom view for this Fragment
+            View view = inflater.Inflate(Resource.Layout.fragment_splitcalc, container, false);
+
+            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportbar.Title = "Pace";
+            supportbar.SetDisplayHomeAsUpEnabled(true);
+            supportbar.SetDisplayShowHomeEnabled(true);
+            HasOptionsMenu = true;
+
+            // add functionality here
+            enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
+            enteredSplitMin = view.FindViewById<EditText>(Resource.Id.enteredSplitMin);
+            enteredSplitSec = view.FindViewById<EditText>(Resource.Id.enteredSplitSec);
+            enteredTimeMin = view.FindViewById<EditText>(Resource.Id.enteredTimeMin);
+            enteredTimeSec = view.FindViewById<EditText>(Resource.Id.enteredTimeSec);
+            calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
+            distanceCard = view.FindViewById<CardView>(Resource.Id.distanceCard);
+            splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);
+            timeCard = view.FindViewById<CardView>(Resource.Id.timeCard);
+
+            calculateButton.Click += CalculateButton_Click;
+            calculateButton.LongClick += CalculateButton_LongClick;
+            distanceCard.LongClick += (s, e) => CommonFunctions.CopyToClipBoard(enteredDistance.Text, Activity);
+            splitCard.LongClick += (s, e) => CommonFunctions.CopyToClipBoard($"{enteredSplitMin.Text}:{enteredSplitSec.Text}", Activity);
+            timeCard.LongClick += (s, e) => CommonFunctions.CopyToClipBoard($"{enteredTimeMin.Text}:{enteredTimeSec.Text}", Activity);
+
+            //sends request for ad
+            var adView = view.FindViewById<AdView>(Resource.Id.adView);
+            var adRequest = new AdRequest.Builder().Build();
+            adView.LoadAd(adRequest);
+
+            return view;
+
+        }
+
+        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        {
+            inflater.Inflate(Resource.Menu.toolbar_menu, menu);
+
+            if (menu is MenuBuilder)
+            {
+                MenuBuilder m = (MenuBuilder)menu;
+                m.SetOptionalIconsVisible(true);
+            }
+
+            base.OnCreateOptionsMenu(menu, inflater);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.menu_info)
+            {
+                CommonFunctions.HelpDialog(Activity, "Pace", "Working Out Distance:\nEnter a 500M split time and the total time taken and then press calculate.\n\nWorking Out Split:\nEnter the distance and the time taken to cover that distance and then press calculate.\n\nWorking Out Total Time:\nEnter the distance and the average split time held during that distance and then press calculate.\n\nTo copy data hold down on any card.\n\nTo clear all data hold the calculate button.");
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
+        private void CalculateButton_LongClick(object sender, View.LongClickEventArgs e)
+        {
+            enteredDistance.Text = "";
+            enteredSplitMin.Text = "";
+            enteredSplitSec.Text = "";
+            enteredTimeMin.Text = "";
+            enteredTimeSec.Text = "";
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            //Calculate Distance - distance = (time/split) * 500
+            if ((enteredDistance.Text == "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
+            {
+                if ((enteredSplitSec.Text == ".") || enteredTimeSec.Text == ".")
+                {
+                    Toast.MakeText(Activity, "Make sure seconds values dont have only a '.' in them!", ToastLength.Short).Show();
+                }
+                else
+                {
+                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text,enteredSplitSec.Text);
+                    TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
+
+                    double timeForCalc = parsedTotalTime.TotalMilliseconds / parsedSplitTime.TotalMilliseconds;
+                    double distance = timeForCalc * 500;
+                    result = distance.ToString();
+                    enteredDistance.Text = result;
+                }
+                
+
+            }
+            //Calculate split - split = 500 * (time/distance)
+            else if ((enteredDistance.Text != "") && (enteredSplitMin.Text == "" && enteredSplitSec.Text == "" ) && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
+            {
+                if (enteredTimeSec.Text == ".")
+                {
+                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Short).Show();
+                }
+                else
+                {
+                    TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
+
+                    double distanceAsInt = long.Parse(enteredDistance.Text);
+
+                    double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
+                    double splitMilli = timeForCalc * 500;
+                    TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
+                    result = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
+                    var SplitAsStringParts = result.Split(':');                    
+                    enteredSplitMin.Text = SplitAsStringParts[0];
+                    enteredSplitSec.Text = SplitAsStringParts[1];
+
+                }
+                
+
+            }
+            //Calculate total time - time = split * (distance/500)
+            else if ((enteredDistance.Text != "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
+            {
+                if ((enteredSplitSec.Text == "."))
+                {
+                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Long).Show();
+                }
+                else
+                {
+                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
+
+                    double distanceAsInt = long.Parse(enteredDistance.Text);
+                    distanceAsInt = distanceAsInt / 500;
+
+                    double totalTimeMilli = parsedSplitTime.TotalMilliseconds * distanceAsInt;
+
+                    TimeSpan timeReadable = TimeSpan.FromMilliseconds(totalTimeMilli);
+                    result = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
+                    var TimeAsStringParts = result.Split(':');
+                    enteredTimeMin.Text = TimeAsStringParts[0];
+                    enteredTimeSec.Text = TimeAsStringParts[1];
+                }
+
+            }
+            else
+            {
+                Toast.MakeText(Activity, "Must enter two values.", ToastLength.Short).Show();
+            }
+        }
+
+    }
+}
