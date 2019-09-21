@@ -6,11 +6,10 @@ using System;
 
 namespace RowerStuff
 {
-    class CommonFunctions
+    static class CommonFunctions
     {
         public static TimeSpan ParseMinSecMS(string inputMins, string inputSecs)
         {
-
             string minutes = inputMins;
             string seconds = inputSecs;
 

@@ -22,7 +22,6 @@ namespace RowerStuff
             FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
             fragmentTx.Replace(Resource.Id.container, homeFragment);
             fragmentTx.Commit();
-
         }
 
         public override bool OnSupportNavigateUp()
