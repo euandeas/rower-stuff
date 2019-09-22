@@ -7,13 +7,11 @@ namespace RowerStuff.Fragments
 {
     public class InfoFragment : Fragment
     {
-        Android.Support.V7.App.ActionBar supportbar;
+        ActionBar supportBar;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -21,10 +19,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_info, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Info";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Info";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
 
             return view;
         }

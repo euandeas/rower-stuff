@@ -8,32 +8,29 @@ using Android.Views;
 using Android.Widget;
 using Fragment = Android.Support.V4.App.Fragment;
 
-
 namespace RowerStuff.Fragments
 {
     public class RateToolFragment : Fragment
     {
-        ActionBar supportbar;
-        Button tapButton;
-        TextView rateLabel;
-        int cycleCounter = 1;
-        Stopwatch stopWatch = new Stopwatch();
+        private ActionBar supportBar;
+        private Button tapButton;
+        private TextView rateLabel;
+        private int cycleCounter = 1;
+        private Stopwatch stopWatch = new Stopwatch();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.fragment_ratetool, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Rate";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Rate";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             rateLabel = view.FindViewById<TextView>(Resource.Id.rateLabel);

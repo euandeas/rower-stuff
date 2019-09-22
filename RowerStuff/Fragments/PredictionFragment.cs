@@ -12,20 +12,18 @@ namespace RowerStuff.Fragments
 {
     public class PredictionFragment : Fragment
     {
-        ActionBar supportbar;
-        Button calculateButton;
-        EditText entAcDistance;
-        EditText entSplitMin;
-        EditText entSplitSec;
-        EditText entPreDistance;
-        TextView preAnswer;
-        CardView predictedCard;
+        private ActionBar supportBar;
+        private Button calculateButton;
+        private EditText entAcDistance;
+        private EditText entSplitMin;
+        private EditText entSplitSec;
+        private EditText entPreDistance;
+        private TextView preAnswer;
+        private CardView predictedCard;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -33,10 +31,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_prediction, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Prediction";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Prediction";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             entAcDistance = view.FindViewById<EditText>(Resource.Id.enteredAcDistance);
@@ -58,7 +56,6 @@ namespace RowerStuff.Fragments
 
             return view;
         }
-
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
         {
@@ -117,6 +114,5 @@ namespace RowerStuff.Fragments
                 Toast.MakeText(Activity, "Make sure to enter all values before calculating!", ToastLength.Short).Show();
             }
         }
-
     }
 }

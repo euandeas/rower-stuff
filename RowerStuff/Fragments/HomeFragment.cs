@@ -15,14 +15,12 @@ namespace RowerStuff.Fragments
         private RecyclerView mRecyclerView;
         private RecyclerView.LayoutManager mLayoutManager;
         private List<CalcTypes> mCalcTypes;
-        Android.Support.V7.App.ActionBar supportbar;
-        InfoFragment infoFragment = new InfoFragment();
+        private ActionBar supportBar;
+        private InfoFragment infoFragment = new InfoFragment();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -30,10 +28,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Rower Stuff";
-            supportbar.SetDisplayHomeAsUpEnabled(false);
-            supportbar.SetDisplayShowHomeEnabled(false);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Rower Stuff";
+            supportBar.SetDisplayHomeAsUpEnabled(false);
+            supportBar.SetDisplayShowHomeEnabled(false);
             HasOptionsMenu = true;
 
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
@@ -82,12 +80,12 @@ namespace RowerStuff.Fragments
     public class RecyclerAdapter : RecyclerView.Adapter
     {
         private List<CalcTypes> mCalcTypes;
-        SplitCalcFragment splitFragment = new SplitCalcFragment();
-        WattCalcFragment wattFragment = new WattCalcFragment();
-        WeightAdjustmentFragment weightFragment = new WeightAdjustmentFragment();
-        PredictionFragment predictionFragment = new PredictionFragment();
-        VO2Fragment vO2Fragment = new VO2Fragment();
-        RateToolFragment rateToolFragment = new RateToolFragment();
+        private SplitCalcFragment splitFragment = new SplitCalcFragment();
+        private WattCalcFragment wattFragment = new WattCalcFragment();
+        private WeightAdjustmentFragment weightFragment = new WeightAdjustmentFragment();
+        private PredictionFragment predictionFragment = new PredictionFragment();
+        private VO2Fragment vO2Fragment = new VO2Fragment();
+        private RateToolFragment rateToolFragment = new RateToolFragment();
 
         public RecyclerAdapter (List<CalcTypes> calcTypes)
         {
@@ -137,7 +135,6 @@ namespace RowerStuff.Fragments
                     case "Rate":
                         fragment = rateToolFragment;
                         break;
-
                 }
 
                 FragmentTransaction fragmentTx = ((AppCompatActivity)menucardview.Context).SupportFragmentManager.BeginTransaction();
@@ -153,7 +150,6 @@ namespace RowerStuff.Fragments
         {
             MyView myHolder = holder as MyView;
             myHolder.mCalcName.Text = mCalcTypes[position].CalcName;
-
         }
 
         public override int ItemCount

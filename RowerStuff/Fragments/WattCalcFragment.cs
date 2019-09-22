@@ -13,20 +13,18 @@ namespace RowerStuff.Fragments
 {
     public class WattCalcFragment : Fragment
     {
-        EditText enteredWatts;
-        EditText enteredSplitMin;
-        EditText enteredSplitSec;
-        Button calculateButton;
-        ActionBar supportbar;
-        CardView splitCard;
-        CardView wattCard;
-        string result;
+        private EditText enteredWatts;
+        private EditText enteredSplitMin;
+        private EditText enteredSplitSec;
+        private Button calculateButton;
+        private ActionBar supportBar;
+        private CardView splitCard;
+        private CardView wattCard;
+        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -34,10 +32,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_wattcalc, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Watts";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Watts";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             enteredWatts = view.FindViewById<EditText>(Resource.Id.enteredWatts);
