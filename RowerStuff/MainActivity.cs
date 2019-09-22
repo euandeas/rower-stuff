@@ -9,7 +9,7 @@ namespace RowerStuff
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class MainActivity : AppCompatActivity
     {
-        HomeFragment homeFragment = new HomeFragment();
+        private HomeFragment homeFragment = new HomeFragment();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,7 +22,6 @@ namespace RowerStuff
             FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
             fragmentTx.Replace(Resource.Id.container, homeFragment);
             fragmentTx.Commit();
-
         }
 
         public override bool OnSupportNavigateUp()

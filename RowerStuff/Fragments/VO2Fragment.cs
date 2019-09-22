@@ -12,22 +12,20 @@ namespace RowerStuff.Fragments
 {
     public class VO2Fragment : Fragment
     {
-        ActionBar supportbar;
-        string weightUnit;
-        string trainingUnit;
-        string genderUnit;
-        Button calculateButton;
-        EditText enteredWeight;
-        EditText enteredTimeMin;
-        EditText enteredTimeSec;
-        TextView vo2Answer;
-        CardView vo2Card;
+        private ActionBar supportBar;
+        private string weightUnit;
+        private string trainingUnit;
+        private string genderUnit;
+        private Button calculateButton;
+        private EditText enteredWeight;
+        private EditText enteredTimeMin;
+        private EditText enteredTimeSec;
+        private TextView vo2Answer;
+        private CardView vo2Card;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -35,10 +33,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_vo2, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "VO2 Max";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "VO2 Max";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             //weight spinner

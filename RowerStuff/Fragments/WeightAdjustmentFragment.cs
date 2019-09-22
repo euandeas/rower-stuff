@@ -12,23 +12,21 @@ namespace RowerStuff.Fragments
 {
     public class WeightAdjustmentFragment : Fragment
     {
-        Button calculateButton;
-        EditText enteredWeight;
-        EditText enteredTimeMin;
-        EditText enteredTimeSec;
-        EditText enteredDistance;
-        TextView adjustedLabel;
-        TextView adjustedAnswer;
-        CardView adjustedCard;
-        string whatUnit;
-        ActionBar supportbar;
-        string result;
+        private Button calculateButton;
+        private EditText enteredWeight;
+        private EditText enteredTimeMin;
+        private EditText enteredTimeSec;
+        private EditText enteredDistance;
+        private TextView adjustedLabel;
+        private TextView adjustedAnswer;
+        private CardView adjustedCard;
+        private string whatUnit;
+        private ActionBar supportBar;
+        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -36,10 +34,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_weightadjustment, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Weight Adjustment";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Weight Adjustment";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             Spinner spinner = view.FindViewById<Spinner>(Resource.Id.weightUnit);
@@ -69,7 +67,6 @@ namespace RowerStuff.Fragments
             adView.LoadAd(adRequest);
 
             return view;
-
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -175,6 +172,5 @@ namespace RowerStuff.Fragments
         {
             return bodyWeightKG / 0.45359237;
         }
-
     }
 }

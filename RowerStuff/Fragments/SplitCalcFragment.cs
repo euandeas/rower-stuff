@@ -12,17 +12,17 @@ namespace RowerStuff.Fragments
 {
     public class SplitCalcFragment : Fragment
     {
-        EditText enteredDistance;
-        EditText enteredSplitMin;
-        EditText enteredSplitSec;
-        EditText enteredTimeMin;
-        EditText enteredTimeSec;
-        Button calculateButton;
-        ActionBar supportbar;
-        CardView distanceCard;
-        CardView splitCard;
-        CardView timeCard;
-        string result;
+        private EditText enteredDistance;
+        private EditText enteredSplitMin;
+        private EditText enteredSplitSec;
+        private EditText enteredTimeMin;
+        private EditText enteredTimeSec;
+        private Button calculateButton;
+        private ActionBar supportBar;
+        private CardView distanceCard;
+        private CardView splitCard;
+        private CardView timeCard;
+        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,10 +34,10 @@ namespace RowerStuff.Fragments
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_splitcalc, container, false);
 
-            supportbar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportbar.Title = "Pace";
-            supportbar.SetDisplayHomeAsUpEnabled(true);
-            supportbar.SetDisplayShowHomeEnabled(true);
+            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
+            supportBar.Title = "Pace";
+            supportBar.SetDisplayHomeAsUpEnabled(true);
+            supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
             // add functionality here
@@ -63,7 +63,6 @@ namespace RowerStuff.Fragments
             adView.LoadAd(adRequest);
 
             return view;
-
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -114,11 +113,8 @@ namespace RowerStuff.Fragments
 
                     double timeForCalc = parsedTotalTime.TotalMilliseconds / parsedSplitTime.TotalMilliseconds;
                     double distance = timeForCalc * 500;
-                    result = distance.ToString();
-                    enteredDistance.Text = result;
+                    enteredDistance.Text = distance.ToString();
                 }
-                
-
             }
             //Calculate split - split = 500 * (time/distance)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text == "" && enteredSplitSec.Text == "" ) && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
@@ -137,13 +133,10 @@ namespace RowerStuff.Fragments
                     double splitMilli = timeForCalc * 500;
                     TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
                     result = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
-                    var SplitAsStringParts = result.Split(':');                    
-                    enteredSplitMin.Text = SplitAsStringParts[0];
-                    enteredSplitSec.Text = SplitAsStringParts[1];
-
-                }
-                
-
+                    var splitAsStringParts = result.Split(':');                    
+                    enteredSplitMin.Text = splitAsStringParts[0];
+                    enteredSplitSec.Text = splitAsStringParts[1];
+                }                
             }
             //Calculate total time - time = split * (distance/500)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
@@ -163,17 +156,15 @@ namespace RowerStuff.Fragments
 
                     TimeSpan timeReadable = TimeSpan.FromMilliseconds(totalTimeMilli);
                     result = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
-                    var TimeAsStringParts = result.Split(':');
-                    enteredTimeMin.Text = TimeAsStringParts[0];
-                    enteredTimeSec.Text = TimeAsStringParts[1];
+                    var timeAsStringParts = result.Split(':');
+                    enteredTimeMin.Text = timeAsStringParts[0];
+                    enteredTimeSec.Text = timeAsStringParts[1];
                 }
-
             }
             else
             {
                 Toast.MakeText(Activity, "Must enter two values.", ToastLength.Short).Show();
             }
         }
-
     }
 }
