@@ -39,7 +39,7 @@ namespace RowerStuff.Fragments
             View view = inflater.Inflate(Resource.Layout.fragment_percentagepace, container, false);
 
             supportBar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportBar.Title = "Pace";
+            supportBar.Title = "Percentage Pace";
             supportBar.SetDisplayHomeAsUpEnabled(true);
             supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
