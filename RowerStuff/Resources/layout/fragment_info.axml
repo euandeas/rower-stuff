@@ -34,7 +34,7 @@
                     android:textStyle="italic"
                     android:textSize="25sp"/>
                 <TextView
-                    android:text="Simply select your desired tool or calculator and then fill out any of the required details. Once you have filled in all the information needed simply click the calculate button and it will give you your desired result. To start again hold down the calculate button to clear the data you entered.\n\nUse these tools to help keep track of your progress and other important data coaches need, and also help set new goals for the future.\n"
+                    android:text="Simply select your desired tool or calculator and then fill out any of the required details. Once you have filled in all the information needed simply click the calculate button and it will give you your desired result. To start again hold down the calculate button to clear the data you entered. More info for each tool is available by pressing the information button in the top corner.\n\nUse these tools to help keep track of your progress and other important data coaches need, and also help set new goals for the future.\n"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/howToUseText"
@@ -79,7 +79,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
         <TextView
-            android:text="Version 2.1.1"
+            android:text="Version 2.2.0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/versionLabel"
