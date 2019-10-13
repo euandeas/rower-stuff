@@ -42,6 +42,7 @@ namespace RowerStuff.Fragments
             mCalcTypes.Add(new CalcTypes() { CalcName = "Prediction" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "VO2 Max" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "Rate" });
+            mCalcTypes.Add(new CalcTypes() { CalcName = "Percentage Pace" });
 
             mLayoutManager = new LinearLayoutManager(Activity);
             mRecyclerView.SetLayoutManager(mLayoutManager);
@@ -86,6 +87,7 @@ namespace RowerStuff.Fragments
         private PredictionFragment predictionFragment = new PredictionFragment();
         private VO2Fragment vO2Fragment = new VO2Fragment();
         private RateToolFragment rateToolFragment = new RateToolFragment();
+        private PercentagePaceFragment percentagePaceFragment = new PercentagePaceFragment();
 
         public RecyclerAdapter (List<CalcTypes> calcTypes)
         {
@@ -134,6 +136,9 @@ namespace RowerStuff.Fragments
                         break;
                     case "Rate":
                         fragment = rateToolFragment;
+                        break;
+                    case "Percentage Pace":
+                        fragment = percentagePaceFragment;
                         break;
                 }
 
