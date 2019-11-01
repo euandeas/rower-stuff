@@ -100,7 +100,7 @@ namespace RowerStuff.Fragments
 
             }
             //Calculate Split - split = (cube-root(w*2.8))*500
-            else if ((enteredWatts.Text != "") && (enteredSplitMin.Text == "" || enteredSplitSec.Text == ""))
+            else if ((enteredWatts.Text != "" && int.Parse(enteredWatts.Text) > 0) && (enteredSplitMin.Text == "" || enteredSplitSec.Text == ""))
             {
                 double wattsAsInt = double.Parse(enteredWatts.Text, CultureInfo.InvariantCulture);
                 double splitSecs = Math.Pow((2.8/wattsAsInt), 1.0 / 3.0);

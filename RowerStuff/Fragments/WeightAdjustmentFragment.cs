@@ -143,7 +143,7 @@ namespace RowerStuff.Fragments
                     result = TimeAsString;
                 }
                 //Corrected distance = actual distance / Wf
-                else if ((enteredWeight.Text != "") && (enteredDistance.Text != "") && (enteredTimeMin.Text == "" || enteredTimeSec.Text == ""))
+                else if ((enteredWeight.Text != "") && (enteredDistance.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
                 {
                     var Wf = WeightFactor(weightlb);
                     double distanceAsInt = long.Parse(enteredDistance.Text);

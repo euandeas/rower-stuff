@@ -91,7 +91,7 @@ namespace RowerStuff.Fragments
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            if ((entAcDistance.Text != "") && (entSplitMin.Text != "" || entSplitSec.Text != "") && (entPreDistance.Text != ""))
+            if ((entAcDistance.Text != "" && int.Parse(entAcDistance.Text) > 0) && (entSplitMin.Text != "" || entSplitSec.Text != "") && (entPreDistance.Text != ""  && int.Parse(entPreDistance.Text) > 0))
             {
                 if ((entSplitSec.Text == "."))
                 {
@@ -111,7 +111,7 @@ namespace RowerStuff.Fragments
             }
             else
             {
-                Toast.MakeText(Activity, "Make sure to enter all values before calculating!", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Make sure to enter all values before calculating! (Distances must be greater than 0)", ToastLength.Short).Show();
             }
         }
     }
