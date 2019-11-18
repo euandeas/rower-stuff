@@ -82,12 +82,17 @@ namespace RowerStuff.Fragments
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+
             //Calculate Watts - watts = 2.8/(split/500)³
             if ((enteredWatts.Text == "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != ""))
             {
                 if ((enteredSplitSec.Text == "."))
                 {
                     Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Long).Show();
+                }
+                else if (double.Parse(enteredSplitMin.Text) == 0 && double.Parse(enteredSplitSec.Text) == 0)
+                {
+                    Toast.MakeText(Activity, "Make sure the time is greater than 0s!", ToastLength.Long).Show();
                 }
                 else
                 {
@@ -100,7 +105,7 @@ namespace RowerStuff.Fragments
 
             }
             //Calculate Split - split = (cube-root(w*2.8))*500
-            else if ((enteredWatts.Text != "" && int.Parse(enteredWatts.Text) > 0) && (enteredSplitMin.Text == "" || enteredSplitSec.Text == ""))
+            else if ((enteredWatts.Text != "" && double.Parse(enteredWatts.Text) > 0) && (enteredSplitMin.Text == "" || enteredSplitSec.Text == ""))
             {
                 double wattsAsInt = double.Parse(enteredWatts.Text, CultureInfo.InvariantCulture);
                 double splitSecs = Math.Pow((2.8/wattsAsInt), 1.0 / 3.0);
