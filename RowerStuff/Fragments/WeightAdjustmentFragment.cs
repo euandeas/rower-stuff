@@ -22,7 +22,6 @@ namespace RowerStuff.Fragments
         private CardView adjustedCard;
         private string whatUnit;
         private ActionBar supportBar;
-        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -140,7 +139,6 @@ namespace RowerStuff.Fragments
                     var TimeAsString = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
                     adjustedLabel.Text = "Adjusted Time";
                     adjustedAnswer.Text = TimeAsString;
-                    result = TimeAsString;
                 }
                 //Corrected distance = actual distance / Wf
                 else if ((enteredWeight.Text != "") && (enteredDistance.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
@@ -149,8 +147,7 @@ namespace RowerStuff.Fragments
                     double distanceAsInt = long.Parse(enteredDistance.Text);
                     double correctedDistance = distanceAsInt / Wf;
                     adjustedLabel.Text = "Adjusted Distance";
-                    result = correctedDistance.ToString();
-                    adjustedAnswer.Text = result;
+                    adjustedAnswer.Text = correctedDistance.ToString();
                 }
                 else
                 {

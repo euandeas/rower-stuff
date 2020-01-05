@@ -20,7 +20,6 @@ namespace RowerStuff.Fragments
         private ActionBar supportBar;
         private CardView splitCard;
         private CardView wattCard;
-        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -99,8 +98,7 @@ namespace RowerStuff.Fragments
                     TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
                     double watts = 2.8 / Math.Pow((parsedSplitTime.TotalSeconds / 500), 3);
                     watts = Math.Round(watts, 2);
-                    result = watts.ToString();
-                    enteredWatts.Text = result;
+                    enteredWatts.Text = watts.ToString();
                 }
 
             }
@@ -111,8 +109,8 @@ namespace RowerStuff.Fragments
                 double splitSecs = Math.Pow((2.8/wattsAsInt), 1.0 / 3.0);
                 splitSecs = splitSecs * 500;
                 TimeSpan splitReadable = TimeSpan.FromSeconds(splitSecs);
-                result = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
-                var SplitAsStringParts = result.Split(':');
+                
+                var SplitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');
                 enteredSplitMin.Text = SplitAsStringParts[0];
                 enteredSplitSec.Text = SplitAsStringParts[1];
             }

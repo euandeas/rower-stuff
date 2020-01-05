@@ -22,7 +22,6 @@ namespace RowerStuff.Fragments
         private CardView distanceCard;
         private CardView splitCard;
         private CardView timeCard;
-        private string result;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -132,8 +131,8 @@ namespace RowerStuff.Fragments
                     double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
                     double splitMilli = timeForCalc * 500;
                     TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
-                    result = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
-                    var splitAsStringParts = result.Split(':');                    
+      
+                    var splitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');                    
                     enteredSplitMin.Text = splitAsStringParts[0];
                     enteredSplitSec.Text = splitAsStringParts[1];
                 }                
@@ -155,8 +154,7 @@ namespace RowerStuff.Fragments
                     double totalTimeMilli = parsedSplitTime.TotalMilliseconds * distanceAsInt;
 
                     TimeSpan timeReadable = TimeSpan.FromMilliseconds(totalTimeMilli);
-                    result = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
-                    var timeAsStringParts = result.Split(':');
+                    var timeAsStringParts = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds).Split(':');
                     enteredTimeMin.Text = timeAsStringParts[0];
                     enteredTimeSec.Text = timeAsStringParts[1];
                 }
