@@ -69,7 +69,7 @@
                     android:textStyle="italic"
                     android:textSize="25sp"/>
                 <TextView
-                    android:text="My name is Euan and I am from the UK. I am a young developer who also happens to row . I decided to make this tool not only to further my development skills but also as something me and my teammates would use during the season.\n\nThis app started development in 2018 and due to important exams version 2 only started in the summer of 2019. I hope you enjoy the app and there are more essential tools on the way.\n\nPace, watts, weight adjustment and VO2 formulas provided by Concept 2\n\nPlease send any bugs or suggestions to euandeasapps@gmail.com\n"
+                    android:text="My name is Euan and I am from the UK. I am a young developer who also happens to row. I decided to make this tool not only to further my development skills but also as something me and my teammates would use during the season.\n\nThis app started development in 2018 and due to important exams version 2 only started in the summer of 2019. I hope you enjoy the app and there are more essential tools on the way.\n\nPace, watts, weight adjustment and VO2 formulas provided by Concept 2\n\nPlease send any bugs or suggestions to euandeasapps@gmail.com\n"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/howToUseText"
