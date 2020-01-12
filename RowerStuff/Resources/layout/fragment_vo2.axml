@@ -90,7 +90,7 @@
 				        android:id="@+id/enteredTimeMin"
 				        android:inputType="number"
 				        android:textSize="22sp"
-				        android:maxLength="5"
+				        android:maxLength="2"
 				        android:paddingRight="10dp"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
