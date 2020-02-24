@@ -112,7 +112,14 @@ namespace RowerStuff.Fragments
 
                     double timeForCalc = parsedTotalTime.TotalMilliseconds / parsedSplitTime.TotalMilliseconds;
                     double distance = timeForCalc * 500;
-                    enteredDistance.Text = distance.ToString();
+                    if (double.IsNaN(distance))
+                    {
+                        enteredDistance.Text = "0";
+                    }
+                    else
+                    {
+                        enteredDistance.Text = distance.ToString();
+                    }
                 }
             }
             //Calculate split - split = 500 * (time/distance)
@@ -125,16 +132,23 @@ namespace RowerStuff.Fragments
                 else
                 {
                     TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-
                     double distanceAsInt = long.Parse(enteredDistance.Text);
 
-                    double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
-                    double splitMilli = timeForCalc * 500;
-                    TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
-      
-                    var splitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');                    
-                    enteredSplitMin.Text = splitAsStringParts[0];
-                    enteredSplitSec.Text = splitAsStringParts[1];
+                    if (distanceAsInt != 0)
+                    {
+                        double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
+                        double splitMilli = timeForCalc * 500;
+                        TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
+
+                        var splitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');
+                        enteredSplitMin.Text = splitAsStringParts[0];
+                        enteredSplitSec.Text = splitAsStringParts[1];
+                    }
+                    else
+                    {
+                        Toast.MakeText(Activity, "Make sure distance value is greater than 0!", ToastLength.Short).Show();
+                    }
+
                 }                
             }
             //Calculate total time - time = split * (distance/500)
