@@ -92,55 +92,62 @@ namespace RowerStuff.Fragments
 
             if (((enteredWeight.Text != "") && (enteredWeight.Text != ".")) && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
-                double timeMinutes = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text).TotalMinutes;
+                if (enteredTimeSec.Text != ".")
+                {
+                    double timeMinutes = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text).TotalMinutes;
 
-                if (weightUnit == "lb")
-                {
-                    weightkg = float.Parse(enteredWeight.Text) * 0.45359237;
-                }
-                else if (weightUnit == "kg")
-                {
-                    weightkg = float.Parse(enteredWeight.Text);
-                }
+                    if (weightUnit == "lb")
+                    {
+                        weightkg = float.Parse(enteredWeight.Text) * 0.45359237;
+                    }
+                    else if (weightUnit == "kg")
+                    {
+                        weightkg = float.Parse(enteredWeight.Text);
+                    }
 
-                if (genderUnit == "Male")
-                {
-                    if (trainingUnit == "Low")
+                    if (genderUnit == "Male")
                     {
-                        Y = 10.7 - (0.9 * timeMinutes);
-                    }
-                    else if (trainingUnit == "High")
-                    {
-                        if (weightkg > 75)
+                        if (trainingUnit == "Low")
                         {
-                            Y = 15.7 - (1.5 * timeMinutes);
+                            Y = 10.7 - (0.9 * timeMinutes);
                         }
-                        else if (weightkg <= 75)
+                        else if (trainingUnit == "High")
                         {
-                            Y = 15.1 - (1.5 * timeMinutes);
-                        }
-                    }
-                }
-                else if (genderUnit == "Female")
-                {
-                    if (trainingUnit == "Low")
-                    {
-                        Y = 10.26 - (0.93 * timeMinutes);
-                    }
-                    else if (trainingUnit == "High")
-                    {
-                        if (weightkg > 61.36)
-                        {
-                            Y = 14.9 - (1.5 * timeMinutes);
-                        }
-                        else if (weightkg <= 61.36)
-                        {
-                            Y = 14.6 - (1.5 * timeMinutes);
+                            if (weightkg > 75)
+                            {
+                                Y = 15.7 - (1.5 * timeMinutes);
+                            }
+                            else if (weightkg <= 75)
+                            {
+                                Y = 15.1 - (1.5 * timeMinutes);
+                            }
                         }
                     }
-                }
+                    else if (genderUnit == "Female")
+                    {
+                        if (trainingUnit == "Low")
+                        {
+                            Y = 10.26 - (0.93 * timeMinutes);
+                        }
+                        else if (trainingUnit == "High")
+                        {
+                            if (weightkg > 61.36)
+                            {
+                                Y = 14.9 - (1.5 * timeMinutes);
+                            }
+                            else if (weightkg <= 61.36)
+                            {
+                                Y = 14.6 - (1.5 * timeMinutes);
+                            }
+                        }
+                    }
 
-                vo2Answer.Text = $"{Math.Round(((Y * 1000) / weightkg),2)} ml/(kg*min)";
+                    vo2Answer.Text = $"{Math.Round(((Y * 1000) / weightkg),2)} ml/(kg*min)";
+                }
+                else
+                {
+                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Short).Show();
+                }
             }
             else
             {

@@ -103,7 +103,7 @@ namespace RowerStuff.Fragments
             {
                 if ((enteredSplitSec.Text == ".") || enteredTimeSec.Text == ".")
                 {
-                    Toast.MakeText(Activity, "Make sure seconds values dont have only a '.' in them!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Make sure seconds values don't have only a '.' in them!", ToastLength.Short).Show();
                 }
                 else
                 {
