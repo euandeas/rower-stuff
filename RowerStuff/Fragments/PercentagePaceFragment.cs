@@ -98,7 +98,7 @@ namespace RowerStuff.Fragments
         
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            if (enteredSplitMin.Text != "" || enteredSplitSec.Text != "")
+            if (enteredSplitMin.Text != "" || enteredSplitSec.Text != "" && enteredSplitSec.Text != ".")
             {
                 if (seekBar.Progress != 0)
                 {
@@ -115,7 +115,7 @@ namespace RowerStuff.Fragments
             }
             else
             {
-                Toast.MakeText(Activity, "Must enter either a Split.", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Must entera Split.", ToastLength.Short).Show();
             }
         }
     }
