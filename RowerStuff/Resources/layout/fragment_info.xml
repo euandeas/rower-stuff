@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
@@ -72,14 +71,14 @@
                     android:text="My name is Euan and I am from the UK. I am a young developer who also happens to row and I decided to make this tool, starting in 2018, not only to further my development skills but also as something me and my teammates would use during the season. I hope you enjoy the app and it makes any essential calculations quicker and easier.\n\nPace, watts, weight adjustment and VO2 formulas provided by Concept 2.\n\nPlease send any bugs or suggestions to euandeasapps@gmail.com\n"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/howToUseText"
+                    android:id="@+id/aboutText"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:textSize="16sp"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
         <TextView
-            android:text="Version 2.2.3"
+            android:text="Version 2.3.0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/versionLabel"
