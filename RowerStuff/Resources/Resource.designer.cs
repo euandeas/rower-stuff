@@ -4418,10 +4418,7 @@ namespace RowerStuff
 			public const int ic_launcher_round = 2131623939;
 			
 			// aapt resource value: 0x7F0E0004
-			public const int roundchev = 2131623940;
-			
-			// aapt resource value: 0x7F0E0005
-			public const int roundinfo = 2131623941;
+			public const int roundinfo = 2131623940;
 			
 			static Mipmap()
 			{
