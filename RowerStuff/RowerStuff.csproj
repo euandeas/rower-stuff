@@ -76,7 +76,7 @@
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\InfoFragment.cs" />
-    <Compile Include="Fragments\PercentagePaceFragment.cs" />
+    <Compile Include="Fragments\PercentageFragment.cs" />
     <Compile Include="Fragments\PredictionFragment.cs" />
     <Compile Include="Fragments\RateToolFragment.cs" />
     <Compile Include="Fragments\SplitCalcFragment.cs" />
@@ -164,7 +164,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_percentagepace.xml">
+    <AndroidResource Include="Resources\layout\fragment_percentage.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

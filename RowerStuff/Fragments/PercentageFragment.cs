@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Android.Gms.Ads;
 using Android.OS;
 using Android.Support.V7.App;
@@ -10,16 +11,21 @@ using Fragment = Android.Support.V4.App.Fragment;
 
 namespace RowerStuff.Fragments
 {
-    public class PercentagePaceFragment : Fragment
+    public class PercentageFragment : Fragment
     {
         private ActionBar supportBar;
+        private EditText enteredWatts;
         private EditText enteredSplitMin;
         private EditText enteredSplitSec;
         private TextView percentLabel;
         private SeekBar seekBar;
         private TextView percentageAnswer;
+        private TextView percentageLabel;
         private Button calculateButton;
         private CardView percentageCard;
+        private CardView splitCard;
+        private CardView wattCard;
+        private string percentageType = "Pace";
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,22 +35,33 @@ namespace RowerStuff.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.fragment_percentagepace, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_percentage, container, false);
 
             supportBar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportBar.Title = "Percentage Pace";
+            supportBar.Title = "Percentage";
             supportBar.SetDisplayHomeAsUpEnabled(true);
             supportBar.SetDisplayShowHomeEnabled(true);
             HasOptionsMenu = true;
 
+            Spinner spinner = view.FindViewById<Spinner>(Resource.Id.percentageType);
+            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            var adapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.percentageType_array, Android.Resource.Layout.SimpleSpinnerItem);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
+
             enteredSplitMin = view.FindViewById<EditText>(Resource.Id.enteredSplitMin);
             enteredSplitSec = view.FindViewById<EditText>(Resource.Id.enteredSplitSec);
+            enteredWatts = view.FindViewById<EditText>(Resource.Id.enteredWatts);
             percentLabel = view.FindViewById<TextView>(Resource.Id.percentLabel);
             seekBar = view.FindViewById<SeekBar>(Resource.Id.seekBar);
             percentageAnswer = view.FindViewById<TextView>(Resource.Id.percentageAnswer);
+            percentageLabel = view.FindViewById<TextView>(Resource.Id.percentageLabel);
             calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
             percentageCard = view.FindViewById<CardView>(Resource.Id.percentageCard);
+            splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);
+            wattCard = view.FindViewById<CardView>(Resource.Id.wattCard);
 
+            wattCard.Visibility = ViewStates.Gone;
             seekBar.SetProgress(100, false);
             
             calculateButton.Click += CalculateButton_Click;
@@ -61,6 +78,26 @@ namespace RowerStuff.Fragments
             adView.LoadAd(adRequest);
 
             return view;
+        }
+
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            string selectedSpinnerItem = spinner.GetItemAtPosition(e.Position).ToString();
+            if (selectedSpinnerItem == "Pace")
+            {
+                percentageType = "Pace";
+                splitCard.Visibility = ViewStates.Visible;
+                wattCard.Visibility = ViewStates.Gone;
+                percentageLabel.Text = "Percentage Pace";
+            }
+            else if (selectedSpinnerItem == "Watts")
+            {
+                percentageType = "Watts";
+                wattCard.Visibility = ViewStates.Visible;
+                splitCard.Visibility = ViewStates.Gone;
+                percentageLabel.Text = "Percentage Watts";
+            }
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -80,7 +117,7 @@ namespace RowerStuff.Fragments
         {
             if (item.ItemId == Resource.Id.menu_info)
             {
-                CommonFunctions.HelpDialog(Activity, "Percentage Pace", "Use this tool to work out the percentage of a certain pace, to help decide what split to hold during a piece.\nSimply enter a split, choose a percentage and then press calculate.\n\nTo copy data hold down on the percentage pace card.\n\nTo clear all data hold the calculate button.");
+                CommonFunctions.HelpDialog(Activity, "Percentage Pace", "Use this tool to work out the percentage of a certain pace or wattage, to help decide what split or watts to hold during a piece.\nSimply enter a split or watts, choose a percentage and then press calculate.\n\nTo copy data hold down on the percentage card.\n\nTo clear all data hold the calculate button.");
             }
 
             return base.OnOptionsItemSelected(item);
@@ -91,6 +128,7 @@ namespace RowerStuff.Fragments
 
             enteredSplitMin.Text = "";
             enteredSplitSec.Text = "";
+            enteredWatts.Text = "";
             seekBar.SetProgress(100, false);
             percentageAnswer.Text = "";
 
@@ -98,7 +136,7 @@ namespace RowerStuff.Fragments
         
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            if (enteredSplitMin.Text != "" || enteredSplitSec.Text != "" && enteredSplitSec.Text != ".")
+            if (percentageType == "Pace" && enteredSplitMin.Text != "" || enteredSplitSec.Text != "" && enteredSplitSec.Text != ".")
             {
                 if (seekBar.Progress != 0)
                 {
@@ -113,9 +151,29 @@ namespace RowerStuff.Fragments
                     Toast.MakeText(Activity, "Percentage cannot be 0%.", ToastLength.Short).Show();
                 }
             }
-            else
+            else if (percentageType == "Pace")
             {
-                Toast.MakeText(Activity, "Must entera Split.", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Must enter a Split.", ToastLength.Short).Show();
+            }
+
+            if (percentageType == "Watts" && enteredWatts.Text != "" && enteredWatts.Text != ".")
+            {
+                if (seekBar.Progress != 0)
+                {
+                    double percent = (Convert.ToDouble(seekBar.Progress) / 100);
+                    double wattsAsInt = double.Parse(enteredWatts.Text, CultureInfo.InvariantCulture);
+                    double percentageWatt = wattsAsInt * percent;
+                    
+                    percentageAnswer.Text = percentageWatt.ToString();
+                }
+                else
+                {
+                    Toast.MakeText(Activity, "Percentage cannot be 0%.", ToastLength.Short).Show();
+                }
+            }
+            else if (percentageType == "Watts")
+            {
+                Toast.MakeText(Activity, "Must enter watts.", ToastLength.Short).Show();
             }
         }
     }

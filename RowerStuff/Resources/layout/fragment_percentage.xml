@@ -12,13 +12,45 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <android.support.v7.widget.CardView
-                android:id="@+id/splitCard"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
 		        cardview:cardElevation="4dp"
 		        cardview:cardCornerRadius="5dp"
 		        android:layout_marginTop="5dp"
+		        android:layout_marginBottom="5dp"
+		        android:layout_marginLeft="4dp"
+		        android:layout_marginRight="4dp">
+                <RelativeLayout
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:padding="8dp">
+                    <TextView
+				        android:text="Percentage Type:"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:id="@+id/percentageTypeLabel"
+				        android:paddingLeft="10dp"
+				        android:paddingRight="10dp"
+				        android:paddingBottom="5dp"
+				        android:textStyle="italic"
+				        android:textSize="20sp" />
+                    <Spinner
+				        android:id="@+id/percentageType"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:layout_toRightOf="@id/percentageTypeLabel"
+                        android:gravity="center_horizontal"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/splitCard"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        cardview:cardElevation="4dp"
+		        cardview:cardCornerRadius="5dp"
 		        android:layout_marginBottom="5dp"
 		        android:layout_marginLeft="4dp"
 		        android:layout_marginRight="4dp">
@@ -31,7 +63,6 @@
 				        android:text="500 M Split"
 				        android:layout_width="238.0dp"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@+id/enteredDistance"
 				        android:id="@+id/splitLabel"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
@@ -94,8 +125,49 @@
 				        android:textSize="25sp" />
 		        </RelativeLayout>
 	        </android.support.v7.widget.CardView>
-	        <android.support.v7.widget.CardView
+            <android.support.v7.widget.CardView
                 android:id="@+id/wattCard"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        cardview:cardElevation="4dp"
+		        cardview:cardCornerRadius="5dp"
+		        android:layout_marginBottom="5dp"
+		        android:layout_marginLeft="4dp"
+		        android:layout_marginRight="4dp">
+                <RelativeLayout
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:padding="8dp">
+                    <TextView
+				        android:text="Watts"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:id="@+id/wattsLabel"
+				        android:paddingLeft="10dp"
+				        android:paddingRight="10dp"
+				        android:paddingBottom="5dp"
+				        android:textStyle="italic"
+				        android:textSize="25sp" />
+                    <EditText
+				        android:layout_width="150dp"
+				        android:layout_height="wrap_content"
+				        android:layout_below="@id/wattsLabel"
+				        android:id="@+id/enteredWatts"
+				        android:inputType="numberDecimal"
+				        android:textSize="22sp"
+				        android:maxLength="10"
+				        android:paddingRight="10dp"
+				        android:paddingTop="5dp"
+				        android:paddingLeft="10dp"
+				        android:layout_marginLeft="10dp"
+				        android:layout_marginRight="0.0dp"
+			            android:textAlignment="center"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+	        <android.support.v7.widget.CardView
+                android:id="@+id/percentSliderCard"
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"

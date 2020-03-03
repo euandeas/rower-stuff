@@ -14,4 +14,8 @@
       <item>High</item>
       <item>Low</item>
     </string-array>
+    <string-array name="percentageType_array">
+      <item>Pace</item>
+      <item>Watts</item>
+    </string-array>
 </resources>
