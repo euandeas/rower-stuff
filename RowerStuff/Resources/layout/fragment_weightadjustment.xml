@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+	xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<ScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/adView">
-        <LinearLayout
+	    <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -28,42 +27,35 @@
 			        android:orientation="vertical"
 			        android:padding="8dp">
 			        <TextView
-				        android:text="Actual Distance"
+				        android:text="Body Weight"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:id="@+id/acDistanceLabel"
+				        android:id="@+id/bodyweightLabel"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
 				        android:textStyle="italic"
-				        android:textSize="25sp"/>
+				        android:textSize="25sp" />
 			        <EditText
 				        android:layout_width="150dp"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/acDistanceLabel"
-				        android:id="@+id/enteredAcDistance"
-				        android:inputType="number"
+				        android:layout_below="@id/bodyweightLabel"
+				        android:id="@+id/enteredWeight"
+				        android:inputType="numberDecimal"
 				        android:textSize="22sp"
 				        android:maxLength="10"
 				        android:paddingRight="10dp"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
 				        android:layout_marginLeft="10dp"
-				        android:layout_marginRight="0.0dp" 
-                        android:textAlignment="center"/>
-			        <TextView
-				        android:text="M"
+				        android:layout_marginRight="0.0dp"
+				        android:textAlignment="center" />
+			        <Spinner
+				        android:id="@+id/weightUnit"
 				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:layout_below="@id/acDistanceLabel"
-				        android:layout_toRightOf="@id/enteredAcDistance"
-				        android:id="@+id/meterSymbol"
-				        android:paddingTop="5dp"
-				        android:paddingLeft="10dp"
-				        android:paddingRight="20dp"
-				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
-				        android:textSize="25sp"/>
+				        android:layout_height="wrap_content" 
+			            android:layout_below="@id/bodyweightLabel"
+				        android:layout_toRightOf="@id/enteredWeight"/>
 		        </RelativeLayout>
 	        </android.support.v7.widget.CardView>
 	        <android.support.v7.widget.CardView
@@ -81,10 +73,10 @@
 			        android:orientation="vertical"
 			        android:padding="8dp">
 			        <TextView
-				        android:text="Actual 500 M Split"
-				        android:layout_width="238.0dp"
+				        android:text="Total Time"
+				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:id="@+id/splitLabel"
+				        android:id="@+id/timeLabel"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
@@ -93,11 +85,11 @@
 			        <EditText
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/splitLabel"
-				        android:id="@+id/enteredSplitMin"
+				        android:layout_below="@id/timeLabel"
+				        android:id="@+id/enteredTimeMin"
 				        android:inputType="number"
 				        android:textSize="22sp"
-				        android:maxLength="2"
+				        android:maxLength="5"
 				        android:paddingRight="10dp"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
@@ -108,9 +100,9 @@
 				        android:text=":"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/splitLabel"
-				        android:layout_toRightOf="@id/enteredSplitMin"
-				        android:id="@+id/colon1"
+				        android:layout_below="@id/timeLabel"
+				        android:layout_toRightOf="@id/enteredTimeMin"
+				        android:id="@+id/colon2"
 				        android:paddingTop="1dp"
 				        android:paddingLeft="5dp"
 				        android:paddingRight="5dp"
@@ -119,9 +111,9 @@
 			        <EditText
 				        android:layout_width="90dp"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/splitLabel"
-				        android:layout_toRightOf="@id/colon1"
-				        android:id="@+id/enteredSplitSec"
+				        android:layout_below="@id/timeLabel"
+				        android:layout_toRightOf="@id/colon2"
+				        android:id="@+id/enteredTimeSec"
 				        android:inputType="numberDecimal"
 				        android:textSize="22sp"
 				        android:maxLength="6"
@@ -130,52 +122,45 @@
 				        android:paddingLeft="10dp"
 				        android:layout_marginLeft="0dp"
 				        android:layout_marginRight="0.0dp"
-				        android:hint="00.00"/>
+				        android:hint="00.00" />
 			        <TextView
 				        android:text="Mins"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/splitLabel"
-				        android:layout_toRightOf="@id/enteredSplitSec"
-				        android:id="@+id/minsSymbol"
+				        android:layout_below="@id/timeLabel"
+				        android:layout_toRightOf="@id/enteredTimeSec"
+				        android:id="@+id/minsSymbol2"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
 				        android:paddingBottom="5dp"
 				        android:textStyle="italic"
 				        android:textSize="25sp" />
-		        </RelativeLayout>
-	        </android.support.v7.widget.CardView>
-	        <android.support.v7.widget.CardView
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="center_horizontal"
-		        cardview:cardElevation="4dp"
-		        cardview:cardCornerRadius="5dp"
-		        android:layout_marginTop="5dp"
-		        android:layout_marginBottom="5dp"
-		        android:layout_marginLeft="4dp"
-		        android:layout_marginRight="4dp">
-		        <RelativeLayout
-			        android:layout_width="fill_parent"
-			        android:layout_height="wrap_content"
-			        android:orientation="vertical"
-			        android:padding="8dp">
 			        <TextView
-				        android:text="Distance To Predict"
+				        android:text="OR"
+				        android:textAppearance="?android:attr/textAppearanceMedium"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:paddingTop="5dp"
+				        android:layout_below="@id/enteredTimeSec"
+				        android:id="@+id/orText"
+				        android:textAlignment="center"/>
+			        <TextView
+				        android:text="Distance"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:id="@+id/preDistanceLabel"
+				        android:layout_below="@id/orText"
+				        android:id="@+id/distanceLabel"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
 				        android:textStyle="italic"
-				        android:textSize="25sp"/>
+				        android:textSize="25sp" />
 			        <EditText
 				        android:layout_width="150dp"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/preDistanceLabel"
-				        android:id="@+id/enteredPreDistance"
+				        android:layout_below="@id/distanceLabel"
+				        android:id="@+id/enteredDistance"
 				        android:inputType="number"
 				        android:textSize="22sp"
 				        android:maxLength="10"
@@ -189,20 +174,20 @@
 				        android:text="M"
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/preDistanceLabel"
-				        android:layout_toRightOf="@id/enteredPreDistance"
+				        android:layout_below="@id/distanceLabel"
+				        android:layout_toRightOf="@id/enteredDistance"
 				        android:id="@+id/meterSymbol"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
 				        android:paddingBottom="5dp"
 				        android:textStyle="italic"
-				        android:textSize="25sp"/>
+				        android:textSize="25sp" />
 		        </RelativeLayout>
 	        </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-		        android:id="@+id/predictedCard"
-                android:layout_width="fill_parent"
+	        <android.support.v7.widget.CardView
+                android:id="@+id/adjustedCard"
+		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
 		        cardview:cardElevation="4dp"
@@ -216,10 +201,10 @@
 			        android:orientation="vertical"
 			        android:padding="8dp">
 			        <TextView
-				        android:text="Predicted Split"
+				        android:text="Adjusted ..."
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:id="@+id/predictedLabel"
+				        android:id="@+id/adjustedLabel"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
@@ -228,8 +213,8 @@
 			        <TextView
 				        android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
-				        android:layout_below="@id/predictedLabel"
-				        android:id="@+id/predictedAnswer"
+				        android:layout_below="@id/adjustedLabel"
+				        android:id="@+id/adjustedAnswer"
 				        android:paddingTop="5dp"
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
@@ -237,6 +222,7 @@
 				        android:textSize="22sp" />	
 		        </RelativeLayout>
 	        </android.support.v7.widget.CardView>
+	
 	        <Button
 		        android:text="Calculate"
 		        android:layout_width="fill_parent"

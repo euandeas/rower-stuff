@@ -93,21 +93,21 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_prediction.axml">
+    <Content Include="Resources\layout\fragment_prediction.xml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
+    </Content>
     <AndroidResource Include="Resources\layout\fragment_ratetool.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_splitcalc.axml">
+    <Content Include="Resources\layout\fragment_splitcalc.xml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\menucardview.axml">
+    </Content>
+    <Content Include="Resources\layout\menucardview.xml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
+    </Content>
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -131,10 +131,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_wattcalc.axml" />
+    <Content Include="Resources\layout\fragment_wattcalc.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_weightadjustment.axml" />
+    <Content Include="Resources\layout\fragment_weightadjustment.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\toolbar_menu.xml" />
@@ -143,22 +143,22 @@
     <AndroidResource Include="Resources\mipmap-anydpi-v26\roundinfo.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_vo2.axml">
+    <Content Include="Resources\layout\fragment_vo2.xml">
       <SubType>Designer</SubType>
-    </AndroidResource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\background_splash.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_main.axml">
+    <Content Include="Resources\layout\activity_main.xml">
       <SubType>Designer</SubType>
-    </AndroidResource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_home.axml">
+    <Content Include="Resources\layout\fragment_home.xml">
       <SubType>Designer</SubType>
-    </AndroidResource>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_percentage.xml">
