@@ -85,18 +85,10 @@ namespace RowerStuff.Fragments
             //Calculate Watts - watts = 2.8/(split/500)³
             if ((enteredWatts.Text == "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != ""))
             {
-                if ((enteredSplitSec.Text == "."))
-                {
-                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Long).Show();
-                }
-                else
-                {
-                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
-                    double watts = 2.8 / Math.Pow((parsedSplitTime.TotalSeconds / 500), 3);
-                    watts = Math.Round(watts, 2);
-                    enteredWatts.Text = watts.ToString();
-                }
-
+                TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
+                double watts = 2.8 / Math.Pow((parsedSplitTime.TotalSeconds / 500), 3);
+                watts = Math.Round(watts, 2);
+                enteredWatts.Text = watts.ToString();
             }
             //Calculate Split - split = (cube-root(w*2.8))*500
             else if ((enteredWatts.Text != "" && enteredWatts.Text != "." && double.Parse(enteredWatts.Text) > 0) && (enteredSplitMin.Text == "" && enteredSplitSec.Text == ""))

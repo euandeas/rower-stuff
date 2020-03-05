@@ -136,7 +136,7 @@ namespace RowerStuff.Fragments
         
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            if (percentageType == "Pace" && enteredSplitMin.Text != "" || enteredSplitSec.Text != "" && enteredSplitSec.Text != ".")
+            if (percentageType == "Pace" && enteredSplitMin.Text != "" || enteredSplitSec.Text != "")
             {
                 if (seekBar.Progress != 0)
                 {

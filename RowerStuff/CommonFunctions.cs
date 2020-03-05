@@ -16,7 +16,7 @@ namespace RowerStuff
             if (string.IsNullOrWhiteSpace(inputMins))
                 minutes = "00";
 
-            if (string.IsNullOrWhiteSpace(inputSecs))
+            if (string.IsNullOrWhiteSpace(inputSecs) || inputSecs == ".")
                 seconds = "00";
 
             long minutesParsed = long.Parse(minutes);
