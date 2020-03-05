@@ -101,77 +101,55 @@ namespace RowerStuff.Fragments
             //Calculate Distance - distance = (time/split) * 500
             if ((enteredDistance.Text == "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
-                if ((enteredSplitSec.Text == ".") || enteredTimeSec.Text == ".")
+                TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text,enteredSplitSec.Text);
+                TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
+
+                double timeForCalc = parsedTotalTime.TotalMilliseconds / parsedSplitTime.TotalMilliseconds;
+                double distance = timeForCalc * 500;
+                if (double.IsNaN(distance))
                 {
-                    Toast.MakeText(Activity, "Make sure seconds values don't have only a '.' in them!", ToastLength.Short).Show();
+                    enteredDistance.Text = "0";
                 }
                 else
                 {
-                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text,enteredSplitSec.Text);
-                    TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-
-                    double timeForCalc = parsedTotalTime.TotalMilliseconds / parsedSplitTime.TotalMilliseconds;
-                    double distance = timeForCalc * 500;
-                    if (double.IsNaN(distance))
-                    {
-                        enteredDistance.Text = "0";
-                    }
-                    else
-                    {
-                        enteredDistance.Text = distance.ToString();
-                    }
+                    enteredDistance.Text = distance.ToString();
                 }
             }
             //Calculate split - split = 500 * (time/distance)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text == "" && enteredSplitSec.Text == "" ) && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
-                if (enteredTimeSec.Text == ".")
+                TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
+                double distanceAsInt = long.Parse(enteredDistance.Text);
+
+                if (distanceAsInt != 0)
                 {
-                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Short).Show();
+                    double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
+                    double splitMilli = timeForCalc * 500;
+                    TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
+
+                    var splitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');
+                    enteredSplitMin.Text = splitAsStringParts[0];
+                    enteredSplitSec.Text = splitAsStringParts[1];
                 }
                 else
                 {
-                    TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-                    double distanceAsInt = long.Parse(enteredDistance.Text);
-
-                    if (distanceAsInt != 0)
-                    {
-                        double timeForCalc = parsedTotalTime.TotalMilliseconds / distanceAsInt;
-                        double splitMilli = timeForCalc * 500;
-                        TimeSpan splitReadable = TimeSpan.FromMilliseconds(splitMilli);
-
-                        var splitAsStringParts = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds).Split(':');
-                        enteredSplitMin.Text = splitAsStringParts[0];
-                        enteredSplitSec.Text = splitAsStringParts[1];
-                    }
-                    else
-                    {
-                        Toast.MakeText(Activity, "Make sure distance value is greater than 0!", ToastLength.Short).Show();
-                    }
-
-                }                
+                    Toast.MakeText(Activity, "Make sure distance value is greater than 0!", ToastLength.Short).Show();
+                }              
             }
             //Calculate total time - time = split * (distance/500)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
             {
-                if ((enteredSplitSec.Text == "."))
-                {
-                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Long).Show();
-                }
-                else
-                {
-                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
+                TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
 
-                    double distanceAsInt = long.Parse(enteredDistance.Text);
-                    distanceAsInt = distanceAsInt / 500;
+                double distanceAsInt = long.Parse(enteredDistance.Text);
+                distanceAsInt = distanceAsInt / 500;
 
-                    double totalTimeMilli = parsedSplitTime.TotalMilliseconds * distanceAsInt;
+                double totalTimeMilli = parsedSplitTime.TotalMilliseconds * distanceAsInt;
 
-                    TimeSpan timeReadable = TimeSpan.FromMilliseconds(totalTimeMilli);
-                    var timeAsStringParts = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds).Split(':');
-                    enteredTimeMin.Text = timeAsStringParts[0];
-                    enteredTimeSec.Text = timeAsStringParts[1];
-                }
+                TimeSpan timeReadable = TimeSpan.FromMilliseconds(totalTimeMilli);
+                var timeAsStringParts = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds).Split(':');
+                enteredTimeMin.Text = timeAsStringParts[0];
+                enteredTimeSec.Text = timeAsStringParts[1];
             }
             else
             {

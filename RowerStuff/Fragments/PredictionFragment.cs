@@ -93,21 +93,14 @@ namespace RowerStuff.Fragments
         {
             if ((entAcDistance.Text != "" && int.Parse(entAcDistance.Text) > 0) && (entSplitMin.Text != "" || entSplitSec.Text != "") && (entPreDistance.Text != ""  && int.Parse(entPreDistance.Text) > 0))
             {
-                if ((entSplitSec.Text == "."))
-                {
-                    Toast.MakeText(Activity, "Make sure seconds value doesn't only have a '.' in it!", ToastLength.Long).Show();
-                }
-                else
-                {
-                    double acDistanceInt = long.Parse(entAcDistance.Text);
-                    double preDistanceInt = long.Parse(entPreDistance.Text);
-                    double splitsToAdd = 5 * ((Math.Log(preDistanceInt / acDistanceInt)) / (Math.Log(2)));
+                double acDistanceInt = long.Parse(entAcDistance.Text);
+                double preDistanceInt = long.Parse(entPreDistance.Text);
+                double splitsToAdd = 5 * ((Math.Log(preDistanceInt / acDistanceInt)) / (Math.Log(2)));
 
-                    TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(entSplitMin.Text, entSplitSec.Text);
-                    double ammendedSplit = parsedSplitTime.TotalSeconds + splitsToAdd;
-                    TimeSpan splitReadable = TimeSpan.FromSeconds(ammendedSplit);
-                    preAnswer.Text = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
-                }
+                TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(entSplitMin.Text, entSplitSec.Text);
+                double ammendedSplit = parsedSplitTime.TotalSeconds + splitsToAdd;
+                TimeSpan splitReadable = TimeSpan.FromSeconds(ammendedSplit);
+                preAnswer.Text = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
             }
             else
             {
