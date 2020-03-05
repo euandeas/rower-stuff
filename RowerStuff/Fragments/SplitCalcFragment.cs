@@ -119,7 +119,7 @@ namespace RowerStuff.Fragments
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text == "" && enteredSplitSec.Text == "" ) && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
                 TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-                double distanceAsInt = long.Parse(enteredDistance.Text);
+                int distanceAsInt = int.Parse(enteredDistance.Text);
 
                 if (distanceAsInt != 0)
                 {
@@ -141,8 +141,7 @@ namespace RowerStuff.Fragments
             {
                 TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text);
 
-                double distanceAsInt = long.Parse(enteredDistance.Text);
-                distanceAsInt = distanceAsInt / 500;
+                double distanceAsInt = double.Parse(enteredDistance.Text) / 500;
 
                 double totalTimeMilli = parsedSplitTime.TotalMilliseconds * distanceAsInt;
 

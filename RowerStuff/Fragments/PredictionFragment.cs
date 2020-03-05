@@ -93,8 +93,8 @@ namespace RowerStuff.Fragments
         {
             if ((entAcDistance.Text != "" && int.Parse(entAcDistance.Text) > 0) && (entSplitMin.Text != "" || entSplitSec.Text != "") && (entPreDistance.Text != ""  && int.Parse(entPreDistance.Text) > 0))
             {
-                double acDistanceInt = long.Parse(entAcDistance.Text);
-                double preDistanceInt = long.Parse(entPreDistance.Text);
+                double acDistanceInt = int.Parse(entAcDistance.Text);
+                double preDistanceInt = int.Parse(entPreDistance.Text);
                 double splitsToAdd = 5 * ((Math.Log(preDistanceInt / acDistanceInt)) / (Math.Log(2)));
 
                 TimeSpan parsedSplitTime = CommonFunctions.ParseMinSecMS(entSplitMin.Text, entSplitSec.Text);

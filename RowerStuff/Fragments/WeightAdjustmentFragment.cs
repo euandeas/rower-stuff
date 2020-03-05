@@ -133,7 +133,7 @@ namespace RowerStuff.Fragments
                 if ((enteredWeight.Text != "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != "") && (enteredDistance.Text == ""))
                 {
                     TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-                    var Wf = WeightFactor(weightlb);
+                    double Wf = WeightFactor(weightlb);
                     double correctedTime = Wf * parsedTotalTime.TotalSeconds;
                     TimeSpan timeReadable = TimeSpan.FromSeconds(correctedTime);
                     var TimeAsString = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
@@ -143,8 +143,8 @@ namespace RowerStuff.Fragments
                 //Corrected distance = actual distance / Wf
                 else if ((enteredWeight.Text != "") && (enteredDistance.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
                 {
-                    var Wf = WeightFactor(weightlb);
-                    double distanceAsInt = long.Parse(enteredDistance.Text);
+                    double Wf = WeightFactor(weightlb);
+                    int distanceAsInt = int.Parse(enteredDistance.Text);
                     double correctedDistance = distanceAsInt / Wf;
                     adjustedLabel.Text = "Adjusted Distance";
                     adjustedAnswer.Text = correctedDistance.ToString();
