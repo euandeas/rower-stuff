@@ -80,6 +80,7 @@
     <Compile Include="Fragments\PredictionFragment.cs" />
     <Compile Include="Fragments\RateToolFragment.cs" />
     <Compile Include="Fragments\SplitCalcFragment.cs" />
+    <Compile Include="Fragments\SteadyStateFragment.cs" />
     <Compile Include="Fragments\VO2Fragment.cs" />
     <Compile Include="Fragments\WattCalcFragment.cs" />
     <Compile Include="Fragments\WeightAdjustmentFragment.cs" />
@@ -220,6 +221,11 @@
     <AndroidResource Include="Resources\layout\menucardview.xml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_steadystate.xml">
+      <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

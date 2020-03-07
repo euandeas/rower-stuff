@@ -37,13 +37,14 @@ namespace RowerStuff.Fragments
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mCalcTypes = new List<CalcTypes>();
             mCalcTypes.Add(new CalcTypes() { CalcName = "Pace" });
+            mCalcTypes.Add(new CalcTypes() { CalcName = "Percentage" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "Watts" });
+            mCalcTypes.Add(new CalcTypes() { CalcName = "Steady State" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "Weight Adjustment" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "Prediction" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "VO2 Max" });
             mCalcTypes.Add(new CalcTypes() { CalcName = "Rate" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Percentage" });
-
+            
             mLayoutManager = new LinearLayoutManager(Activity);
             mRecyclerView.SetLayoutManager(mLayoutManager);
             mRecyclerView.SetAdapter(new RecyclerAdapter(mCalcTypes));
@@ -88,6 +89,7 @@ namespace RowerStuff.Fragments
         private VO2Fragment vO2Fragment = new VO2Fragment();
         private RateToolFragment rateToolFragment = new RateToolFragment();
         private PercentageFragment percentageFragment = new PercentageFragment();
+        private SteadyStateFragment steadyStateFragment = new SteadyStateFragment();
 
         public RecyclerAdapter (List<CalcTypes> calcTypes)
         {
@@ -139,6 +141,9 @@ namespace RowerStuff.Fragments
                         break;
                     case "Percentage":
                         fragment = percentageFragment;
+                        break;
+                    case "Steady State":
+                        fragment = steadyStateFragment;
                         break;
                 }
 
