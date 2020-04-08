@@ -3,10 +3,11 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Content;
+using Android.Content.PM;
 
 namespace RowerStuff
 {
-    [Activity(Theme = "@style/SplashTheme", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/SplashTheme", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

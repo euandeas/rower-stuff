@@ -3,10 +3,11 @@ using Android.OS;
 using Android.Support.V7.App;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using RowerStuff.Fragments;
+using Android.Content.PM;
 
 namespace RowerStuff
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
         private HomeFragment homeFragment = new HomeFragment();
