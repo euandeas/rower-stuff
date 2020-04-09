@@ -19,6 +19,7 @@ namespace RowerStuff
             Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-6671601320564750~3044693219");
 
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
