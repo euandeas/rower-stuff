@@ -20,9 +20,12 @@ namespace RowerStuff
             SetSupportActionBar(FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.maintoolbar));
             SupportActionBar.Title = "Rower Stuff";
 
-            FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
-            fragmentTx.Replace(Resource.Id.container, homeFragment);
-            fragmentTx.Commit();
+            if (savedInstanceState == null)
+            { 
+                FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.container, homeFragment);
+                fragmentTx.Commit();
+            } 
         }
 
         public override bool OnSupportNavigateUp()
