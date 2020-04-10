@@ -324,10 +324,13 @@ namespace RowerStuff
 			public const int percentageType_array = 2130903041;
 			
 			// aapt resource value: 0x7F030002
-			public const int trainingLvl_array = 2130903042;
+			public const int theme_array = 2130903042;
 			
 			// aapt resource value: 0x7F030003
-			public const int weightUnits_array = 2130903043;
+			public const int trainingLvl_array = 2130903043;
+			
+			// aapt resource value: 0x7F030004
+			public const int weightUnits_array = 2130903044;
 			
 			static Array()
 			{
@@ -3972,94 +3975,100 @@ namespace RowerStuff
 			public const int text_input_password_toggle = 2131296486;
 			
 			// aapt resource value: 0x7F0900EA
-			public const int time = 2131296490;
+			public const int themeLabel = 2131296490;
 			
 			// aapt resource value: 0x7F0900EB
-			public const int timeCard = 2131296491;
+			public const int themeSelect = 2131296491;
 			
 			// aapt resource value: 0x7F0900EC
-			public const int timeLabel = 2131296492;
+			public const int time = 2131296492;
 			
 			// aapt resource value: 0x7F0900ED
-			public const int title = 2131296493;
+			public const int timeCard = 2131296493;
 			
 			// aapt resource value: 0x7F0900EE
-			public const int titleDividerNoCustom = 2131296494;
+			public const int timeLabel = 2131296494;
 			
 			// aapt resource value: 0x7F0900EF
-			public const int title_template = 2131296495;
+			public const int title = 2131296495;
 			
 			// aapt resource value: 0x7F0900F0
-			public const int top = 2131296496;
+			public const int titleDividerNoCustom = 2131296496;
 			
 			// aapt resource value: 0x7F0900F1
-			public const int topPanel = 2131296497;
+			public const int title_template = 2131296497;
 			
 			// aapt resource value: 0x7F0900F2
-			public const int touch_outside = 2131296498;
+			public const int top = 2131296498;
 			
 			// aapt resource value: 0x7F0900F3
-			public const int trainingLabel = 2131296499;
+			public const int topPanel = 2131296499;
 			
 			// aapt resource value: 0x7F0900F4
-			public const int trainingLevel = 2131296500;
+			public const int touch_outside = 2131296500;
 			
 			// aapt resource value: 0x7F0900F5
-			public const int transition_current_scene = 2131296501;
+			public const int trainingLabel = 2131296501;
 			
 			// aapt resource value: 0x7F0900F6
-			public const int transition_layout_save = 2131296502;
+			public const int trainingLevel = 2131296502;
 			
 			// aapt resource value: 0x7F0900F7
-			public const int transition_position = 2131296503;
+			public const int transition_current_scene = 2131296503;
 			
 			// aapt resource value: 0x7F0900F8
-			public const int transition_scene_layoutid_cache = 2131296504;
+			public const int transition_layout_save = 2131296504;
 			
 			// aapt resource value: 0x7F0900F9
-			public const int transition_transform = 2131296505;
+			public const int transition_position = 2131296505;
 			
 			// aapt resource value: 0x7F0900FA
-			public const int uniform = 2131296506;
+			public const int transition_scene_layoutid_cache = 2131296506;
 			
 			// aapt resource value: 0x7F0900FB
-			public const int unlabeled = 2131296507;
+			public const int transition_transform = 2131296507;
 			
 			// aapt resource value: 0x7F0900FC
-			public const int up = 2131296508;
+			public const int uniform = 2131296508;
 			
 			// aapt resource value: 0x7F0900FD
-			public const int useLogo = 2131296509;
+			public const int unlabeled = 2131296509;
 			
 			// aapt resource value: 0x7F0900FE
-			public const int versionLabel = 2131296510;
+			public const int up = 2131296510;
 			
 			// aapt resource value: 0x7F0900FF
-			public const int view_offset_helper = 2131296511;
+			public const int useLogo = 2131296511;
 			
 			// aapt resource value: 0x7F090100
-			public const int visible = 2131296512;
+			public const int versionLabel = 2131296512;
 			
 			// aapt resource value: 0x7F090101
-			public const int vo2Answer = 2131296513;
+			public const int view_offset_helper = 2131296513;
 			
 			// aapt resource value: 0x7F090102
-			public const int vo2Card = 2131296514;
+			public const int visible = 2131296514;
 			
 			// aapt resource value: 0x7F090103
-			public const int wattCard = 2131296515;
+			public const int vo2Answer = 2131296515;
 			
 			// aapt resource value: 0x7F090104
-			public const int wattsLabel = 2131296516;
+			public const int vo2Card = 2131296516;
 			
 			// aapt resource value: 0x7F090105
-			public const int weightUnit = 2131296517;
+			public const int wattCard = 2131296517;
 			
 			// aapt resource value: 0x7F090106
-			public const int withText = 2131296518;
+			public const int wattsLabel = 2131296518;
 			
 			// aapt resource value: 0x7F090107
-			public const int wrap_content = 2131296519;
+			public const int weightUnit = 2131296519;
+			
+			// aapt resource value: 0x7F090108
+			public const int withText = 2131296520;
+			
+			// aapt resource value: 0x7F090109
+			public const int wrap_content = 2131296521;
 			
 			static Id()
 			{
