@@ -131,10 +131,10 @@
     <AndroidResource Include="Resources\menu\toolbar_menu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\roundinfo.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi\roundinfo.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-anydpi-v26\background_splash.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi\background_splash.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
