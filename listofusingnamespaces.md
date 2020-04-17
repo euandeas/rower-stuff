@@ -1,14 +1,35 @@
-using Android.App;
-using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V7.App;
-using Android.Runtime;
-using Android.Content;
-using Android.Content.PM;
-using Android.Support.V4.App.FragmentTransaction;
-using Android.Widget;
-using Android.Support.V7.View.Menu;
-using Android.Support.V7.Widget;
-using Android.Views;
-using Android.Support.V4.App.Fragment;
-using Android.Gms.Ads;
+# **General**
+
+Android.App;
+
+Android.OS;
+
+Android.Runtime;
+
+Android.Content;
+
+Android.Content.PM;
+
+Android.Widget;
+
+Android.Views;
+
+Android.Gms.Ads;
+
+# **Support V4**
+
+Android.Support.V4.App;
+
+Android.Support.V4.App.FragmentTransaction;
+
+Android.Support.V4.App.Fragment;
+
+# **Support V7**
+
+Android.Support.V7.App;
+
+Android.Support.V7.View.Menu;
+
+Android.Support.V7.Widget;
+
+
