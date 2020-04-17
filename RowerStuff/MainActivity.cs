@@ -1,7 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
-using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
+using FragmentTransaction = AndroidX.Fragment.App.FragmentTransaction;
 using RowerStuff.Fragments;
 using Android.Content.PM;
 
@@ -17,7 +18,7 @@ namespace RowerStuff
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            SetSupportActionBar(FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.maintoolbar));
+            SetSupportActionBar(FindViewById<Toolbar>(Resource.Id.maintoolbar));
             SupportActionBar.Title = "Rower Stuff";
 
             FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();

@@ -1,6 +1,6 @@
 ﻿using Android.Content;
-using Android.Support.V4.App;
-using Android.Support.V7.App;
+using AndroidX.Fragment.App;
+using AndroidX.AppCompat.App;
 using Android.Widget;
 using System;
 

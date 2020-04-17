@@ -1,12 +1,12 @@
 ﻿using Android.Gms.Ads;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Support.V7.View.Menu;
-using Android.Support.V7.Widget;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.View.Menu;
+using AndroidX.CardView.Widget;
 using Android.Views;
 using Android.Widget;
 using System;
-using Fragment = Android.Support.V4.App.Fragment;
+using Fragment = AndroidX.Fragment.App.Fragment;
 
 namespace RowerStuff.Fragments
 {

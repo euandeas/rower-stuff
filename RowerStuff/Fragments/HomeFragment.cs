@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Support.V7.View.Menu;
-using Android.Support.V7.Widget;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.View.Menu;
+using AndroidX.RecyclerView.Widget;
 using Android.Views;
 using Android.Widget;
-using Fragment = Android.Support.V4.App.Fragment;
-using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Fragment = AndroidX.Fragment.App.Fragment;
+using FragmentTransaction = AndroidX.Fragment.App.FragmentTransaction;
 
 namespace RowerStuff.Fragments
 {
