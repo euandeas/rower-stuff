@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Content.Res;
 using Android.OS;
 using Android.Preferences;
 using Android.Support.V7.App;
@@ -73,7 +72,7 @@ namespace RowerStuff.Fragments
                         prefs.Edit().PutString("theme", "Dark").Commit();
                         break;
                     case "System Preference":
-                        ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
+                        ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);                   
                         prefs.Edit().PutString("theme", "System Preference").Commit();
                         break;
                 }
