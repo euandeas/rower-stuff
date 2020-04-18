@@ -29,8 +29,15 @@ namespace RowerStuff
                     case "Dark":
                         base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
                         break;
-                    case "System Preference":
-                        base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
+                    case "System Default":
+                        if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+                        {
+                            base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
+                        }
+                        else
+                        {
+                            base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightAutoBattery);
+                        }
                         break;
                 }
             }

@@ -45,7 +45,7 @@ namespace RowerStuff.Fragments
                 case "Dark":
                     spinner.SetSelection(1);
                     break;
-                case "System Preference":
+                case "System Default":
                     spinner.SetSelection(2);
                     break;
             }
@@ -71,9 +71,16 @@ namespace RowerStuff.Fragments
                         ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
                         prefs.Edit().PutString("theme", "Dark").Commit();
                         break;
-                    case "System Preference":
-                        ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
-                        prefs.Edit().PutString("theme", "System Preference").Commit();
+                    case "System Default":
+                        if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+                        {
+                            ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
+                        }
+                        else
+                        {
+                            ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightAutoBattery);
+                        }
+                        prefs.Edit().PutString("theme", "System Default").Commit();
                         break;
                 }
             }

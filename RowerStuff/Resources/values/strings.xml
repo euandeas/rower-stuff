@@ -21,6 +21,6 @@
     <string-array name="theme_array">
       <item>Light</item>
       <item>Dark</item>
-      <item>System Preference</item>
+      <item>System Default</item>
     </string-array>
 </resources>
