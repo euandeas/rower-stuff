@@ -129,7 +129,7 @@ namespace RowerStuff.Fragments
             enteredSplitMin.Text = "";
             enteredSplitSec.Text = "";
             enteredWatts.Text = "";
-            seekBar.SetProgress(100, false);
+            seekBar.Progress = 100;
             percentageAnswer.Text = "";
 
         }        
