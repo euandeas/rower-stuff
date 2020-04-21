@@ -62,7 +62,7 @@ namespace RowerStuff.Fragments
             wattCard = view.FindViewById<CardView>(Resource.Id.wattCard);
 
             wattCard.Visibility = ViewStates.Gone;
-            seekBar.SetProgress(100, false);
+            seekBar.Progress = 100;
             
             calculateButton.Click += CalculateButton_Click;
             calculateButton.LongClick += CalculateButton_LongClick;
