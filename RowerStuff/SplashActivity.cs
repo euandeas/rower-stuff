@@ -20,6 +20,7 @@ namespace RowerStuff
 
             StartActivity(new Intent(Application.Context, typeof(MainActivity)));
             OverridePendingTransition(Resource.Animation.abc_fade_in, Resource.Animation.abc_fade_out);
+            Finish();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
