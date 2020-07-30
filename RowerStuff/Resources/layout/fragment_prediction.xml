@@ -11,7 +11,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
@@ -64,8 +64,8 @@
 				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 		        </RelativeLayout>
-	        </android.support.v7.widget.CardView>
-	        <android.support.v7.widget.CardView
+	        </androidx.cardview.widget.CardView>
+	        <androidx.cardview.widget.CardView
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
@@ -144,8 +144,8 @@
 				        android:textStyle="italic"
 				        android:textSize="25sp" />
 		        </RelativeLayout>
-	        </android.support.v7.widget.CardView>
-	        <android.support.v7.widget.CardView
+	        </androidx.cardview.widget.CardView>
+	        <androidx.cardview.widget.CardView
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_horizontal"
@@ -197,8 +197,8 @@
 				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 		        </RelativeLayout>
-	        </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+	        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
 		        android:id="@+id/predictedCard"
                 android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
@@ -234,7 +234,7 @@
 				        android:paddingBottom="5dp"
 				        android:textSize="22sp" />	
 		        </RelativeLayout>
-	        </android.support.v7.widget.CardView>
+	        </androidx.cardview.widget.CardView>
 	        <Button
 		        android:text="Calculate"
 		        android:layout_width="fill_parent"
