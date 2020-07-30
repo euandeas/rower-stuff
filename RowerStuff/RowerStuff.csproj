@@ -85,7 +85,6 @@
     <Compile Include="Fragments\WattCalcFragment.cs" />
     <Compile Include="Fragments\WeightAdjustmentFragment.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="SplashActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,10 +7,11 @@ using RowerStuff.Fragments;
 using Android.Content.PM;
 using AndroidX.Preference;
 using Android.Content;
+using Android.Runtime;
 
 namespace RowerStuff
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private HomeFragment homeFragment = new HomeFragment();
@@ -42,8 +43,14 @@ namespace RowerStuff
                 }
             }
 
+            SetTheme(Resource.Style.AppTheme);
+
             base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            //Ensures that the SDK has been initialized with our publisher app ID
+            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-6671601320564750~3044693219");
 
             SetSupportActionBar(FindViewById<Toolbar>(Resource.Id.maintoolbar));
             SupportActionBar.Title = "Rower Stuff";
@@ -54,6 +61,13 @@ namespace RowerStuff
                 fragmentTx.Replace(Resource.Id.container, homeFragment);
                 fragmentTx.Commit();
             }
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         public override bool OnSupportNavigateUp()
