@@ -120,9 +120,6 @@
     <PackageReference Include="Xamarin.AndroidX.Fragment">
       <Version>1.2.5.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
-      <Version>1.0.0.5</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
       <Version>2.2.0.3</Version>
     </PackageReference>
