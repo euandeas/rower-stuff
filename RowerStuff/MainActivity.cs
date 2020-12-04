@@ -50,7 +50,7 @@ namespace RowerStuff
             SetContentView(Resource.Layout.activity_main);
 
             //Ensures that the SDK has been initialized with our publisher app ID
-            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-6671601320564750~3044693219");
+            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext);
 
             SetSupportActionBar(FindViewById<Toolbar>(Resource.Id.maintoolbar));
             SupportActionBar.Title = "Rower Stuff";
