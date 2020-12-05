@@ -3,6 +3,7 @@ using AndroidX.Fragment.App;
 using AndroidX.AppCompat.App;
 using Android.Widget;
 using System;
+using System.Globalization;
 
 namespace RowerStuff
 {
@@ -20,7 +21,7 @@ namespace RowerStuff
                 seconds = "00";
 
             long minutesParsed = long.Parse(minutes);
-            double secondsParsed = double.Parse(seconds);
+            double secondsParsed = double.Parse(seconds, CultureInfo.InvariantCulture);
 
             return TimeSpan.FromMinutes(minutesParsed).Add(TimeSpan.FromSeconds(secondsParsed));
         }
