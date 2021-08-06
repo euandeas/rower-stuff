@@ -30,7 +30,6 @@
 				    android:paddingLeft="10dp"
 				    android:paddingRight="10dp"
 				    android:paddingBottom="5dp"
-				    android:textStyle="italic"
 				    android:textSize="20sp" />
                 <Spinner
 				    android:id="@+id/themeSelect"
@@ -63,7 +62,6 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
-                    android:textStyle="italic"
                     android:textSize="25sp"/>
                 <TextView
                     android:text="Simply select your desired tool or calculator and then fill out any of the required details. Once you have filled in all the information needed simply click the calculate button and it will give you your desired result. To start again hold down the calculate button to clear the data you entered. More info for each tool is available by pressing the information button in the top corner.\n\nUse these tools to help keep track of your progress and other important data coaches need, and also help set new goals for the future.\n"
@@ -98,7 +96,6 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
-                    android:textStyle="italic"
                     android:textSize="25sp"/>
                 <TextView
                     android:text="My name is Euan and I am from the UK. I am a young developer who also happens to row and I decided to make this tool, starting in 2018, not only to further my development skills but also as something me and my teammates would use during the season. I hope you enjoy the app and it makes any essential calculations quicker and easier.\n\nPace, watts, weight adjustment and VO2 formulas provided by Concept 2.\n\nPlease send any bugs or suggestions to euandeasapps@gmail.com\n"
@@ -111,7 +108,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <TextView
-            android:text="Version 2.4.4"
+            android:text="Version 2.5.0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/versionLabel"

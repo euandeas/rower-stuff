@@ -34,7 +34,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 			        <EditText
 				        android:layout_width="150dp"
@@ -61,7 +60,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 		        </RelativeLayout>
 	        </androidx.cardview.widget.CardView>
@@ -87,7 +85,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp" />
 			        <EditText
 				        android:layout_width="wrap_content"
@@ -141,7 +138,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp" />
 		        </RelativeLayout>
 	        </androidx.cardview.widget.CardView>
@@ -168,7 +164,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 			        <EditText
 				        android:layout_width="150dp"
@@ -194,7 +189,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="20dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp"/>
 		        </RelativeLayout>
 	        </androidx.cardview.widget.CardView>
@@ -221,7 +215,6 @@
 				        android:paddingLeft="10dp"
 				        android:paddingRight="10dp"
 				        android:paddingBottom="5dp"
-				        android:textStyle="italic"
 				        android:textSize="25sp" />
 			        <TextView
 				        android:layout_width="wrap_content"

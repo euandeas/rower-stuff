@@ -14,7 +14,6 @@ namespace RowerStuff
     [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        private HomeFragment homeFragment = new HomeFragment();
         private ISharedPreferences prefs = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -58,7 +57,7 @@ namespace RowerStuff
             if (savedInstanceState == null)
             {
                 FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.container, homeFragment);
+                fragmentTx.Replace(Resource.Id.container, new HomeFragment());
                 fragmentTx.Commit();
             }
         }

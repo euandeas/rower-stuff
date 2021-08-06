@@ -15,7 +15,6 @@ namespace RowerStuff.Fragments
         private ActionBar supportBar;
         private Button tapButton;
         private TextView rateLabel;
-        private int cycleCounter = 1;
         private Stopwatch stopWatch = new Stopwatch();
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -47,17 +46,7 @@ namespace RowerStuff.Fragments
 
         private void TapButton_Click(object sender, EventArgs e)
         {
-            if(cycleCounter == 1 || stopWatch.ElapsedMilliseconds >= 15000)
-            {
-                if (stopWatch.ElapsedMilliseconds >= 15000)
-                {
-                    stopWatch.Stop();
-                    stopWatch.Reset();
-                }
-                stopWatch.Start();
-                cycleCounter = 2;
-            }
-            else if (cycleCounter == 2)
+            if (stopWatch.IsRunning && stopWatch.ElapsedMilliseconds < 15000)
             {
                 stopWatch.Stop();
                 TimeSpan ts = stopWatch.Elapsed;
@@ -65,7 +54,17 @@ namespace RowerStuff.Fragments
                 var spm = result * 1;
                 rateLabel.Text = $"{Math.Round(spm)}";
                 stopWatch.Reset();
-                cycleCounter = 1;
+                stopWatch.Start();
+            }
+            else if (stopWatch.IsRunning && stopWatch.ElapsedMilliseconds >= 15000)
+            {
+                stopWatch.Stop();
+                stopWatch.Reset();
+                stopWatch.Start();
+            }
+            else if (!stopWatch.IsRunning)
+            {
+                stopWatch.Start();
             }
         }
 

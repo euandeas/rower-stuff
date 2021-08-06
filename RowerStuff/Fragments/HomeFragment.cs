@@ -14,9 +14,7 @@ namespace RowerStuff.Fragments
     {
         private RecyclerView mRecyclerView;
         private RecyclerView.LayoutManager mLayoutManager;
-        private List<CalcTypes> mCalcTypes;
         private ActionBar supportBar;
-        private InfoFragment infoFragment = new InfoFragment();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,19 +33,10 @@ namespace RowerStuff.Fragments
             HasOptionsMenu = true;
 
             mRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            mCalcTypes = new List<CalcTypes>();
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Pace" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Percentage" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Watts" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Steady State" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Weight Adjustment" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Prediction" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "VO2 Max" });
-            mCalcTypes.Add(new CalcTypes() { CalcName = "Rate" });
             
             mLayoutManager = new LinearLayoutManager(Activity);
             mRecyclerView.SetLayoutManager(mLayoutManager);
-            mRecyclerView.SetAdapter(new RecyclerAdapter(mCalcTypes));
+            mRecyclerView.SetAdapter(new RecyclerAdapter(new List<string>() { "Pace", "Percentage", "Watts", "Steady State", "Weight Adjustment", "Prediction", "VO2 Max", "Rate" }));
 
             return view;
         }
@@ -70,7 +59,7 @@ namespace RowerStuff.Fragments
             if (item.ItemId == Resource.Id.menu_info)
             {
                 FragmentTransaction fragmentTx = Activity.SupportFragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.container, infoFragment);
+                fragmentTx.Replace(Resource.Id.container, new InfoFragment());
                 fragmentTx.AddToBackStack(null);
                 fragmentTx.Commit();
             }
@@ -81,17 +70,9 @@ namespace RowerStuff.Fragments
 
     public class RecyclerAdapter : RecyclerView.Adapter
     {
-        private List<CalcTypes> mCalcTypes;
-        private SplitCalcFragment splitFragment = new SplitCalcFragment();
-        private WattCalcFragment wattFragment = new WattCalcFragment();
-        private WeightAdjustmentFragment weightFragment = new WeightAdjustmentFragment();
-        private PredictionFragment predictionFragment = new PredictionFragment();
-        private VO2Fragment vO2Fragment = new VO2Fragment();
-        private RateToolFragment rateToolFragment = new RateToolFragment();
-        private PercentageFragment percentageFragment = new PercentageFragment();
-        private SteadyStateFragment steadyStateFragment = new SteadyStateFragment();
+        private List<string> mCalcTypes;
 
-        public RecyclerAdapter (List<CalcTypes> calcTypes)
+        public RecyclerAdapter (List<string> calcTypes)
         {
             mCalcTypes = calcTypes;
         }
@@ -122,28 +103,28 @@ namespace RowerStuff.Fragments
                 switch (cardLabel.Text)
                 {
                     case "Pace":
-                        fragment = splitFragment;
+                        fragment = new SplitCalcFragment();
                         break;
                     case "Watts":
-                        fragment = wattFragment;
+                        fragment = new WattCalcFragment();
                         break;
                     case "Weight Adjustment":
-                        fragment = weightFragment;
+                        fragment = new WeightAdjustmentFragment();
                         break;
                     case "Prediction":
-                        fragment = predictionFragment;
+                        fragment = new PredictionFragment();
                         break;
                     case "VO2 Max":
-                        fragment = vO2Fragment;
+                        fragment = new VO2Fragment();
                         break;
                     case "Rate":
-                        fragment = rateToolFragment;
+                        fragment = new RateToolFragment();
                         break;
                     case "Percentage":
-                        fragment = percentageFragment;
+                        fragment = new PercentageFragment();
                         break;
                     case "Steady State":
-                        fragment = steadyStateFragment;
+                        fragment = new SteadyStateFragment();
                         break;
                 }
 
@@ -159,17 +140,12 @@ namespace RowerStuff.Fragments
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             MyView myHolder = holder as MyView;
-            myHolder.mCalcName.Text = mCalcTypes[position].CalcName;
+            myHolder.mCalcName.Text = mCalcTypes[position];
         }
 
         public override int ItemCount
         {
             get { return mCalcTypes.Count; }
         }
-    }
-
-    public class CalcTypes
-    {
-        public string CalcName { get; set; }
     }
 }
