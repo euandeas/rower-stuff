@@ -7,6 +7,7 @@ using AndroidX.CardView.Widget;
 using Android.Views;
 using Android.Widget;
 using Fragment = AndroidX.Fragment.App.Fragment;
+using System.Globalization;
 
 namespace RowerStuff.Fragments
 {
@@ -122,11 +123,11 @@ namespace RowerStuff.Fragments
             {
                 if (whatUnit == "kg")
                 {
-                    weightlb = kgTolb(float.Parse(enteredWeight.Text));
+                    weightlb = kgTolb(float.Parse(enteredWeight.Text, CultureInfo.InvariantCulture));
                 }
                 else if (whatUnit == "lb")
                 {
-                    weightlb = float.Parse(enteredWeight.Text);
+                    weightlb = float.Parse(enteredWeight.Text, CultureInfo.InvariantCulture);
                 }
 
                 //Corrected time = Wf x actual time(seconds)

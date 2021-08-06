@@ -91,7 +91,7 @@ namespace RowerStuff.Fragments
                 enteredWatts.Text = watts.ToString();
             }
             //Calculate Split - split = (cube-root(w*2.8))*500
-            else if ((enteredWatts.Text != "" && enteredWatts.Text != "." && double.Parse(enteredWatts.Text) > 0) && (enteredSplitMin.Text == "" && enteredSplitSec.Text == ""))
+            else if ((enteredWatts.Text != "" && enteredWatts.Text != "." && double.Parse(enteredWatts.Text, CultureInfo.InvariantCulture) > 0) && (enteredSplitMin.Text == "" && enteredSplitSec.Text == ""))
             {
                 double wattsAsInt = double.Parse(enteredWatts.Text, CultureInfo.InvariantCulture);
                 double splitSecs = Math.Pow((2.8/wattsAsInt), 1.0 / 3.0);
