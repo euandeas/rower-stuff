@@ -12,11 +12,10 @@
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center_horizontal"
 		    cardview:cardElevation="4dp"
-		    cardview:cardCornerRadius="5dp"
-		    android:layout_marginTop="5dp"
-		    android:layout_marginBottom="5dp"
-		    android:layout_marginLeft="4dp"
-		    android:layout_marginRight="4dp">
+	        cardview:cardCornerRadius="5dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginLeft="4dp"
+	        android:layout_marginRight="4dp">
             <RelativeLayout
 			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
@@ -44,11 +43,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/howToUseCard"
             cardview:cardElevation="4dp"
-            cardview:cardCornerRadius="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp">
+	        cardview:cardCornerRadius="5dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginLeft="4dp"
+	        android:layout_marginRight="4dp">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -78,11 +76,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/aboutCard"
             cardview:cardElevation="4dp"
-            cardview:cardCornerRadius="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp">
+	        cardview:cardCornerRadius="5dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginLeft="4dp"
+	        android:layout_marginRight="4dp">
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -108,14 +105,14 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <TextView
-            android:text="Version 2.5.0"
+            android:text="Version 2.4.5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/versionLabel"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="5dp"
-            android:textSize="8sp"
+            android:textSize="14sp"
             android:gravity="center_horizontal|bottom"
             android:textColor="#ff434343" />
     </LinearLayout>

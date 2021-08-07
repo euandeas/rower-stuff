@@ -41,8 +41,7 @@ namespace RowerStuff
         public static void CopyToClipBoard(string result, Context context)
         {
             ClipboardManager clipboard = (ClipboardManager)context.GetSystemService(Context.ClipboardService);
-            ClipData clip = ClipData.NewPlainText("Rower Stuff Data", result);
-            clipboard.PrimaryClip = clip;
+            clipboard.PrimaryClip = ClipData.NewPlainText("Rower Stuff Data", result);
             Toast.MakeText(context, "Copied to clipboard", ToastLength.Short).Show();
         }
     }
