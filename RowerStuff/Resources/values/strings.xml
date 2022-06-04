@@ -1,25 +1,4 @@
 <resources>
-    <string name="app_name">Rower Stuff</string>
-    <string name="banner_ad_unit_id">ca-app-pub-6671601320564750/3636554309</string>
-    <string-array name="weightUnits_array">
-      <item>lb</item>
-      <item>kg</item>
-    </string-array>
-    <string-array name="gender_array">
-      <item>Male</item>
-      <item>Female</item>
-    </string-array>
-    <string-array name="trainingLvl_array">
-      <item>High</item>
-      <item>Low</item>
-    </string-array>
-    <string-array name="percentageType_array">
-      <item>Pace</item>
-      <item>Watts</item>
-    </string-array>
-    <string-array name="theme_array">
-      <item>Light</item>
-      <item>Dark</item>
-      <item>System Default</item>
-    </string-array>
+    <string name="app_name">RowerStuff</string>
+    <string name="app_text">Hello, Android!</string>
 </resources>
