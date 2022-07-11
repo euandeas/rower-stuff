@@ -9,4 +9,11 @@
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\drawable\ic_launcher_foreground.xml" />
+    <None Remove="Resources\layout\distance_card.xml" />
+    <None Remove="Resources\layout\split_card.xml" />
+    <None Remove="Resources\layout\time_card.xml" />
+    <None Remove="Resources\layout\toolbar.xml" />
+  </ItemGroup>
 </Project>
