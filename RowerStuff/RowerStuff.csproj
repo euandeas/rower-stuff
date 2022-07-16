@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="Resources\drawable\ic_launcher_foreground.xml" />
     <None Remove="Resources\layout\distance_card.xml" />
+    <None Remove="Resources\layout\fragment_pace.xml" />
     <None Remove="Resources\layout\split_card.xml" />
     <None Remove="Resources\layout\time_card.xml" />
     <None Remove="Resources\layout\toolbar.xml" />
@@ -27,8 +28,5 @@
     <PackageReference Include="Xamarin.AndroidX.Navigation.Fragment" Version="2.4.2.1" />
     <PackageReference Include="Xamarin.AndroidX.Navigation.UI" Version="2.4.2.1" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.6.1.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fragments\" />
   </ItemGroup>
 </Project>

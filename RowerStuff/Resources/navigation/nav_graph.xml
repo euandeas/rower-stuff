@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    app:startDestination="@id/blankFragment">
+    app:startDestination="@id/paceFragment">
 	<fragment
-        android:id="@+id/blankFragment"
-        android:name=""
-        android:label="blank"/>
+        android:id="@+id/paceFragment"
+        android:name="RowerStuff.Fragments.PaceFragment"
+        android:label="Pace Fragment"/>
 </navigation>
