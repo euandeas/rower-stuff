@@ -1,82 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+ <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/splitCard"
+    android:id="@+id/timeCard"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    cardview:cardElevation="4dp"
-    cardview:cardCornerRadius="3dp"
-    android:layout_marginBottom="5dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp">
+    cardview:cardElevation="4dp">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp">
         <TextView
-            android:text="500 M Split"
-            android:layout_width="238.0dp"
+            android:text="Total Time"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/splitLabel"
+            android:id="@+id/timeLabel"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="5dp"
-            android:textSize="25sp" />
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/splitLabel"
-            android:id="@+id/enteredSplitMin"
+            android:layout_below="@id/timeLabel"
+            android:id="@+id/enteredTimeMin"
             android:inputType="number"
-            android:textSize="22sp"
-            android:maxLength="2"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:maxLength="5"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="0.0dp"
-            android:hint="00" />
+            android:hint="00"/>
         <TextView
             android:text=":"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/splitLabel"
-            android:layout_toRightOf="@id/enteredSplitMin"
-            android:id="@+id/colon"
+            android:layout_below="@id/timeLabel"
+            android:layout_toRightOf="@id/enteredTimeMin"
+            android:id="@+id/colon2"
             android:paddingTop="1dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="5dp"
-            android:textSize="25sp" />
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
         <EditText
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/splitLabel"
-            android:layout_toRightOf="@id/colon"
-            android:id="@+id/enteredSplitSec"
+            android:layout_below="@id/timeLabel"
+            android:layout_toRightOf="@id/colon2"
+            android:id="@+id/enteredTimeSec"
             android:inputType="numberDecimal"
-            android:textSize="22sp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
             android:maxLength="6"
             android:paddingRight="10dp"
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0.0dp"
-            android:hint="00.00"/>
+            android:hint="00.00" />
         <TextView
             android:text="Mins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/splitLabel"
-            android:layout_toRightOf="@id/enteredSplitSec"
-            android:id="@+id/minsSymbol"
+            android:layout_below="@id/timeLabel"
+            android:layout_toRightOf="@id/enteredTimeSec"
+            android:id="@+id/minsSymbol2"
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
-            android:textSize="25sp" />
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
     </RelativeLayout>
-</androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
