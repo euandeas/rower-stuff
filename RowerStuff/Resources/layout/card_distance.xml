@@ -6,44 +6,21 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     cardview:cardElevation="4dp">
-    <RelativeLayout
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_margin="@dimen/mp_large"
+        android:orientation="vertical">
         <TextView
-            android:text="Distance"
+            android:text="@string/distance_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mp_small"
             android:id="@+id/distanceLabel"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="5dp"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-        <EditText
-            android:layout_width="150dp"
+        <include
+            android:layout_width="152dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/distanceLabel"
-            android:id="@+id/enteredDistance"
-            android:inputType="number"
-            android:textAppearance="?attr/textAppearanceTitleLarge"
-            android:maxLength="8"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:layout_marginLeft="10dp"
-            android:textAlignment="center"/>
-        <TextView
-            android:text="M"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/distanceLabel"
-            android:layout_toRightOf="@id/enteredDistance"
-            android:id="@+id/meterSymbol"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="5dp"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-    </RelativeLayout>
+            layout="@layout/layout_distance"/>
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
