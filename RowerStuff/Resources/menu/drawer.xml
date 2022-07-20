@@ -4,5 +4,8 @@
 		<item
             android:id="@+id/paceFragment"
             android:title="Pace" />
+		<item
+            android:id="@+id/wattsFragment"
+            android:title="Watts" />
 	</group>
 </menu>

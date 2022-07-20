@@ -6,4 +6,8 @@
         android:id="@+id/paceFragment"
         android:name="RowerStuff.Fragments.PaceFragment"
         android:label="Pace"/>
+	<fragment
+        android:id="@+id/wattsFragment"
+        android:name="RowerStuff.Fragments.WattsFragment"
+        android:label="Watts"/>
 </navigation>

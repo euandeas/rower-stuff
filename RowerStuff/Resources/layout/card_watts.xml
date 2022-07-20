@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wattsCard"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    cardview:cardElevation="4dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mp_large"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/watts_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:id="@+id/watts_Label"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+        <EditText
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/enteredWatts"
+            android:inputType="numberDecimal"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:maxLength="8"
+            android:paddingTop="0dp"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

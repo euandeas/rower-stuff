@@ -14,6 +14,8 @@ namespace RowerStuff
     {
         private NavController navController;
         private AppBarConfiguration appBarConfiguration;
+        private NavigationView navView;
+        private DrawerLayout drawer;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
@@ -22,19 +24,27 @@ namespace RowerStuff
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.SetStatusBarBackgroundColor(Color.Transparent);
 
+            navView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navController = ((NavHostFragment)SupportFragmentManager.FindFragmentById(Resource.Id.nav_host_fragment)).NavController;
-            appBarConfiguration = new AppBarConfiguration.Builder(navController.Graph).SetDrawerLayout(drawer).Build();
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                Resource.Id.paceFragment, 
+                Resource.Id.wattsFragment
+                ).SetOpenableLayout(drawer).Build();
+
+            NavigationUI.SetupWithNavController(navView, navController);
+
         }
 
         public void SetupToolBar(MaterialToolbar toolbar, string title)
         {
             SetSupportActionBar(toolbar);
             SupportActionBar.Title=title;
-
+        
             NavigationUI.SetupWithNavController(toolbar, navController, appBarConfiguration);
+            NavigationUI.SetupWithNavController(navView, navController);
         }
     }
 }
