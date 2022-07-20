@@ -17,6 +17,7 @@
     <None Remove="Resources\layout\fragment_pace.xml" />
     <None Remove="Resources\layout\layout_distance.xml" />
     <None Remove="Resources\layout\layout_time.xml" />
+    <None Remove="Resources\layout\nav_header.xml" />
     <None Remove="Resources\layout\split_card.xml" />
     <None Remove="Resources\layout\time_card.xml" />
     <None Remove="Resources\layout\toolbar.xml" />

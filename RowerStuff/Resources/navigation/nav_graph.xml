@@ -5,5 +5,5 @@
 	<fragment
         android:id="@+id/paceFragment"
         android:name="RowerStuff.Fragments.PaceFragment"
-        android:label="Pace Fragment"/>
+        android:label="Pace"/>
 </navigation>
