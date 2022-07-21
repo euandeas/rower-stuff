@@ -6,10 +6,11 @@ using AndroidX.Navigation.UI;
 using AndroidX.Navigation;
 using Google.Android.Material.Navigation;
 using Google.Android.Material.AppBar;
+using SplashScreenX = Androidx.Core.Splashscreen.SplashScreen;
 
 namespace RowerStuff
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.App.Starting", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private NavController navController;
@@ -18,6 +19,8 @@ namespace RowerStuff
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
+            SplashScreenX.InstallSplashScreen(this);
+
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activity_main);
