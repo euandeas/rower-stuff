@@ -6,7 +6,7 @@ using AndroidX.Navigation.UI;
 using AndroidX.Navigation;
 using Google.Android.Material.Navigation;
 using Google.Android.Material.AppBar;
-using SplashScreenX = Androidx.Core.Splashscreen.SplashScreen;
+using SplashScreenX = AndroidX.Core.SplashScreen.SplashScreen;
 
 namespace RowerStuff
 {
