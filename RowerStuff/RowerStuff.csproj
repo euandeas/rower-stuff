@@ -16,7 +16,14 @@
     <None Remove="Resources\layout\card_watts.xml" />
     <None Remove="Resources\layout\distance_card.xml" />
     <None Remove="Resources\layout\fragment_pace.xml" />
+    <None Remove="Resources\layout\fragment_pace_prediction.xml" />
+    <None Remove="Resources\layout\fragment_percentage_pace.xml" />
+    <None Remove="Resources\layout\fragment_percentage_watts.xml" />
+    <None Remove="Resources\layout\fragment_rate.xml" />
+    <None Remove="Resources\layout\fragment_steady_state.xml" />
+    <None Remove="Resources\layout\fragment_vo2_max.xml" />
     <None Remove="Resources\layout\fragment_watts.xml" />
+    <None Remove="Resources\layout\fragment_weight_adjustment.xml" />
     <None Remove="Resources\layout\layout_distance.xml" />
     <None Remove="Resources\layout\layout_time.xml" />
     <None Remove="Resources\layout\nav_header.xml" />

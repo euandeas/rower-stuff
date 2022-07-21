@@ -7,6 +7,7 @@
 	<string name="time_label">Total Time</string>
 	<string name="watts_label">Watts</string>
 	<string name="calculate_label">Calculate</string>
+	<string name="tap_label">Tap</string>
 
 	<string name="distance_unit">M</string>
 	<string name="minute_unit">Mins</string>

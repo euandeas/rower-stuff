@@ -19,7 +19,7 @@ namespace RowerStuff.Fragments
             View view = inflater.Inflate(Resource.Layout.fragment_pace, container, false);
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            (Activity as MainActivity).SetupToolBar(toolbar, "Pace");
+            (Activity as MainActivity).SetupToolBar(toolbar);
             HasOptionsMenu = true;
 
             return view;

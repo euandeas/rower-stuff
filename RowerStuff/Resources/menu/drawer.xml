@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<group android:checkableBehavior="single">
+
+	<group android:checkableBehavior="single" android:id="@+id/group1">
 		<item
-            android:id="@+id/paceFragment"
-            android:title="Pace" />
+			android:id="@+id/paceFragment"
+			android:title="Pace" />
 		<item
-            android:id="@+id/wattsFragment"
-            android:title="Watts" />
+			android:id="@+id/wattsFragment"
+			android:title="Watts" />
+		<item
+			android:id="@+id/weightAdjustmentFragment"
+			android:title="Weight Adjustment" />
+	</group>
+
+
+	<group android:checkableBehavior="single" android:id="@+id/group2">
+		<item
+			android:id="@+id/percentagePaceFragment"
+			android:title="Percentage Pace" />
+		<item
+			android:id="@+id/percentageWattsFragment"
+			android:title="Percentage Watts" />
+	</group>
+
+
+	<group android:checkableBehavior="single" android:id="@+id/group3">
+		<item
+			android:id="@+id/steadyStateFragment"
+			android:title="Steady State" />
+		<item
+			android:id="@+id/pacePredictionFragment"
+			android:title="Pace Prediction" />
+		<item
+			android:id="@+id/vo2MaxFragment"
+			android:title="VO2 Max" />
+	</group>
+
+
+	<group android:checkableBehavior="single" android:id="@+id/group4">
+		<item
+			android:id="@+id/rateFragment"
+			android:title="Rate" />
 	</group>
 </menu>

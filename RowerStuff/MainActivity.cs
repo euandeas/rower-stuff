@@ -15,34 +15,37 @@ namespace RowerStuff
         private NavController navController;
         private AppBarConfiguration appBarConfiguration;
         private NavigationView navView;
-        private DrawerLayout drawer;
 
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.SetStatusBarBackgroundColor(Color.Transparent);
 
             navView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navController = ((NavHostFragment)SupportFragmentManager.FindFragmentById(Resource.Id.nav_host_fragment)).NavController;
             appBarConfiguration = new AppBarConfiguration.Builder(
                 Resource.Id.paceFragment, 
-                Resource.Id.wattsFragment
+                Resource.Id.wattsFragment,
+                Resource.Id.weightAdjustmentFragment,
+                Resource.Id.percentagePaceFragment,
+                Resource.Id.percentageWattsFragment,
+                Resource.Id.steadyStateFragment,
+                Resource.Id.pacePredictionFragment,
+                Resource.Id.vo2MaxFragment,
+                Resource.Id.rateFragment
                 ).SetOpenableLayout(drawer).Build();
-
-            NavigationUI.SetupWithNavController(navView, navController);
 
         }
 
-        public void SetupToolBar(MaterialToolbar toolbar, string title)
+        public void SetupToolBar(MaterialToolbar toolbar)
         {
             SetSupportActionBar(toolbar);
-            SupportActionBar.Title=title;
-        
+            SupportActionBar.Title = "Pace";
+
             NavigationUI.SetupWithNavController(toolbar, navController, appBarConfiguration);
             NavigationUI.SetupWithNavController(navView, navController);
         }

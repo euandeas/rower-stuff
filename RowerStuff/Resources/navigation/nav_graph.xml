@@ -10,4 +10,35 @@
         android:id="@+id/wattsFragment"
         android:name="RowerStuff.Fragments.WattsFragment"
         android:label="Watts"/>
+	<fragment
+        android:id="@+id/weightAdjustmentFragment"
+        android:name="RowerStuff.Fragments.WeightAdjustmentFragment"
+        android:label="Weight Adjustment"/>
+
+	<fragment
+        android:id="@+id/percentagePaceFragment"
+        android:name="RowerStuff.Fragments.PercentagePaceFragment"
+        android:label="Percentage Pace"/>
+	<fragment
+        android:id="@+id/percentageWattsFragment"
+        android:name="RowerStuff.Fragments.PercentageWattsFragment"
+        android:label="Percentage Watts"/>
+
+	<fragment
+        android:id="@+id/steadyStateFragment"
+        android:name="RowerStuff.Fragments.SteadyStateFragment"
+        android:label="Steady State"/>
+	<fragment
+        android:id="@+id/pacePredictionFragment"
+        android:name="RowerStuff.Fragments.PacePredictionFragment"
+        android:label="Pace Prediction"/>
+	<fragment
+        android:id="@+id/vo2MaxFragment"
+        android:name="RowerStuff.Fragments.VO2MaxFragment"
+        android:label="VO2 Max"/>
+
+	<fragment
+        android:id="@+id/rateFragment"
+        android:name="RowerStuff.Fragments.RateFragment"
+        android:label="Rate"/>
 </navigation>

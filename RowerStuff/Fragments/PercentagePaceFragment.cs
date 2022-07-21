@@ -6,7 +6,7 @@ using Fragment = AndroidX.Fragment.App.Fragment;
 
 namespace RowerStuff.Fragments
 {
-    public class WattsFragment : Fragment
+    public class PercentagePaceFragment : Fragment
     {
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -16,7 +16,7 @@ namespace RowerStuff.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.fragment_watts, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_percentage_pace, container, false);
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
