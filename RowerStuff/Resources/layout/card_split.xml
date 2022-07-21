@@ -19,7 +19,7 @@
             android:id="@+id/splitLabel"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
         <include
-            android:layout_width="152dp"
+            android:layout_width="@dimen/data_entry_area"
             android:layout_height="wrap_content"
             layout="@layout/layout_time"/>
     </LinearLayout>

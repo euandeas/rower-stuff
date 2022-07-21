@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,18 +15,38 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        layout="@layout/card_split"
+        layout="@layout/card_2k_time"
         android:layout_marginBottom="@dimen/mp_small"
         android:layout_marginLeft="@dimen/mp_small"
         android:layout_marginRight="@dimen/mp_small"/>
 
-    <include
-        android:layout_width="match_parent"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/steadyStatePaceCard"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        layout="@layout/card_watts"
+        cardview:cardElevation="4dp"
         android:layout_marginBottom="@dimen/mp_small"
         android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small"/>
+        android:layout_marginRight="@dimen/mp_small">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mp_large"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/steady_state_pace_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mp_small"
+                android:id="@+id/steadyStatePaceLabel"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+            <TextView
+                android:id="@+id/paceRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceTitleLarge"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <include
         android:layout_width="match_parent"

@@ -3,4 +3,6 @@
 	<dimen name="mp_small">4dp</dimen>
 	<dimen name="mp_medium">8dp</dimen>
 	<dimen name="mp_large">12dp</dimen>
+
+	<dimen name="data_entry_area">164dp</dimen>
 </resources>

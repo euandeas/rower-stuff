@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/distanceCard"
+    android:id="@+id/twokTimeCard"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     cardview:cardElevation="4dp">
@@ -12,15 +12,15 @@
         android:layout_margin="@dimen/mp_large"
         android:orientation="vertical">
         <TextView
-            android:text="@string/distance_label"
+            android:text="@string/twok_time_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/mp_small"
-            android:id="@+id/distanceLabel"
+            android:id="@+id/twokTimeLabel"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
         <include
             android:layout_width="@dimen/data_entry_area"
             android:layout_height="wrap_content"
-            layout="@layout/layout_distance"/>
+            layout="@layout/layout_time"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -12,15 +12,30 @@
         android:layout_margin="@dimen/mp_large"
         android:orientation="vertical">
         <TextView
-            android:text="@string/distance_label"
+            android:text="@string/body_weight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/mp_small"
-            android:id="@+id/distanceLabel"
+            android:id="@+id/bodyWeightLabel"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-        <include
+        <LinearLayout 
             android:layout_width="@dimen/data_entry_area"
-            android:layout_height="wrap_content"
-            layout="@layout/layout_distance"/>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/enteredBodyWeight"
+                android:inputType="number"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:maxLength="8"
+                android:paddingTop="0dp"
+                android:layout_weight="1"/>
+            <Spinner
+				android:id="@+id/weightUnit"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+                android:layout_weight="0"/>
+        </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
