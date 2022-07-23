@@ -8,6 +8,8 @@ namespace RowerStuff.Fragments
 {
     public class RateFragment : Fragment
     {
+        private TextView rateLabel;
+        private Models.SPM spm = new();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,7 +24,17 @@ namespace RowerStuff.Fragments
             (Activity as MainActivity).SetupToolBar(toolbar);
             HasOptionsMenu = true;
 
+            rateLabel = view.FindViewById<TextView>(Resource.Id.rateLabel);
+            Button tapButton = view.FindViewById<Button>(Resource.Id.tapButton);
+
+            tapButton.Click += TapButton_Click;
+
             return view;
+        }
+
+        private void TapButton_Click(object? sender, EventArgs e)
+        {
+            rateLabel.Text = $"{spm.Beat()}";
         }
 
         public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
@@ -40,6 +52,11 @@ namespace RowerStuff.Fragments
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            if (item.ItemId == Resource.Id.info)
+            {
+                Helpers.HelpDialog(Activity, "Rate", "Use this tool to measure the stroke rate of a rower/crew.", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
+            }
+
             return base.OnOptionsItemSelected(item);
         }
     }
