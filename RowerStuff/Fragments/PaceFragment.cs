@@ -40,6 +40,11 @@ namespace RowerStuff.Fragments
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            if (item.ItemId == Resource.Id.info)
+            {
+                Helpers.HelpDialog(Activity, "Rate", "Use this tool to measure the stroke rate of a rower/crew.", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
+            }
+
             return base.OnOptionsItemSelected(item);
         }
     }
