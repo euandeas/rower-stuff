@@ -31,7 +31,7 @@ namespace RowerStuff
 
         public static void HelpDialog(FragmentActivity activity, string toolName, string about, string usage)
         {
-            MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(activity);
+            MaterialAlertDialogBuilder dialog = new(activity);
             dialog.SetTitle($"How to Use - {toolName}");
             dialog.SetMessage($"{about}\n\n{usage}");
             dialog.SetNegativeButton("Ok", delegate
