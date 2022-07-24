@@ -41,7 +41,7 @@ namespace RowerStuff.Fragments
         {
             if (item.ItemId == Resource.Id.info)
             {
-                Helpers.HelpDialog(Activity, "Rate", "Use this tool to measure the stroke rate of a rower/crew.", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
+                Helpers.HelpDialog(Activity, "Rate", "");
             }
 
             return base.OnOptionsItemSelected(item);

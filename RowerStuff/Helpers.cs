@@ -1,11 +1,6 @@
 ﻿using AndroidX.Fragment.App;
 using Google.Android.Material.Dialog;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RowerStuff
 {
@@ -29,11 +24,11 @@ namespace RowerStuff
             return TimeSpan.FromMinutes(minutesParsed).Add(TimeSpan.FromSeconds(secondsParsed));
         }
 
-        public static void HelpDialog(FragmentActivity activity, string toolName, string about, string usage)
+        public static void HelpDialog(FragmentActivity activity, string toolName, string usage)
         {
             MaterialAlertDialogBuilder dialog = new(activity);
             dialog.SetTitle($"How to Use - {toolName}");
-            dialog.SetMessage($"{about}\n\n{usage}");
+            dialog.SetMessage(usage);
             dialog.SetNegativeButton("Ok", delegate
             {
                 dialog.Dispose();

@@ -2,6 +2,7 @@
 using AndroidX.AppCompat.View.Menu;
 using Google.Android.Material.AppBar;
 using Fragment = AndroidX.Fragment.App.Fragment;
+using RowerStuff.Models;
 
 
 namespace RowerStuff.Fragments
@@ -9,7 +10,7 @@ namespace RowerStuff.Fragments
     public class RateFragment : Fragment
     {
         private TextView rateLabel;
-        private Models.SPM spm = new();
+        private readonly SPM spm = new();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,7 +54,7 @@ namespace RowerStuff.Fragments
         {
             if (item.ItemId == Resource.Id.info)
             {
-                Helpers.HelpDialog(Activity, "Rate", "Use this tool to measure the stroke rate of a rower/crew.", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
+                Helpers.HelpDialog(Activity, "Rate", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
             }
 
             return base.OnOptionsItemSelected(item);
