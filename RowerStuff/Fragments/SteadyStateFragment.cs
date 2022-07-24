@@ -29,9 +29,8 @@ namespace RowerStuff.Fragments
         {
             inflater.Inflate(Resource.Menu.toolbar, menu);
 
-            if (menu is MenuBuilder)
+            if (menu is MenuBuilder m)
             {
-                MenuBuilder m = (MenuBuilder)menu;
                 m.SetOptionalIconsVisible(true);
             }
 
