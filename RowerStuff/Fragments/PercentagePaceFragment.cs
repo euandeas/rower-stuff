@@ -43,8 +43,8 @@ namespace RowerStuff.Fragments
             result = view.FindViewById<TextView>(Resource.Id.percentagePaceResult);
 
             Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
-            calculateButton.Click += CalculateButton_Click; ;
-            calculateButton.LongClick += CalculateButton_LongClick; ;
+            calculateButton.Click += CalculateButton_Click;
+            calculateButton.LongClick += CalculateButton_LongClick;
 
             return view;
         }
@@ -99,7 +99,7 @@ namespace RowerStuff.Fragments
         {
             if (item.ItemId == Resource.Id.info)
             {
-                Helpers.HelpDialog(Activity, "Percentage Pace", "");
+                Helpers.HelpDialog(Activity, "Percentage Pace", "Enter a split and the chosen percentage of that split, worked out using the wattage, will be returned.");
             }
 
             return base.OnOptionsItemSelected(item);

@@ -43,7 +43,7 @@ namespace RowerStuff.Fragments
 
             Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
             calculateButton.Click += CalculateButton_Click;
-            calculateButton.LongClick += CalculateButton_LongClick; ;
+            calculateButton.LongClick += CalculateButton_LongClick;
 
             return view;
         }
@@ -95,7 +95,7 @@ namespace RowerStuff.Fragments
         {
             if (item.ItemId == Resource.Id.info)
             {
-                Helpers.HelpDialog(Activity, "Percentage Watts", "");
+                Helpers.HelpDialog(Activity, "Percentage Watts", "Enter watts and the chosen percentage of the watts will be returned.");
             }
 
             return base.OnOptionsItemSelected(item);
