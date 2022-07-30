@@ -1,8 +1,8 @@
 ﻿using Android.Views;
 using AndroidX.AppCompat.View.Menu;
 using Google.Android.Material.AppBar;
-using Fragment = AndroidX.Fragment.App.Fragment;
 using RowerStuff.Models;
+using Fragment = AndroidX.Fragment.App.Fragment;
 
 
 namespace RowerStuff.Fragments

@@ -1,6 +1,5 @@
 ﻿using Android.Views;
 using AndroidX.AppCompat.View.Menu;
-using AndroidX.CardView.Widget;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using System.Globalization;

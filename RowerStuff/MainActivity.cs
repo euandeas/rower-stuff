@@ -1,11 +1,11 @@
 using Android.Graphics;
 using AndroidX.AppCompat.App;
 using AndroidX.DrawerLayout.Widget;
+using AndroidX.Navigation;
 using AndroidX.Navigation.Fragment;
 using AndroidX.Navigation.UI;
-using AndroidX.Navigation;
-using Google.Android.Material.Navigation;
 using Google.Android.Material.AppBar;
+using Google.Android.Material.Navigation;
 using SplashScreenX = AndroidX.Core.SplashScreen.SplashScreen;
 
 namespace RowerStuff

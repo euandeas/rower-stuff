@@ -1,5 +1,4 @@
 ﻿using Android.Views;
-using Android.Widget;
 using AndroidX.AppCompat.View.Menu;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
