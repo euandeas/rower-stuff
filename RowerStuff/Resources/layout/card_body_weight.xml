@@ -32,7 +32,7 @@
                 android:paddingTop="0dp"
                 android:layout_weight="1"/>
             <Spinner
-				android:id="@+id/weightUnit"
+				android:id="@+id/weightUnitSpinner"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content" 
                 android:layout_weight="0"/>

@@ -48,7 +48,7 @@ namespace RowerStuff.Models
             return TimeSpan.FromSeconds(Math.Pow(2.8 / watts, 1.0 / 3.0) * 500);
         }
 
-        public static double VO2Max(float weightkg, string gender, string traininglvl, TimeSpan twoKTime)
+        public static double VO2Max(double weightkg, string gender, string traininglvl, TimeSpan twoKTime)
         {
             double timeMinutes = twoKTime.TotalMinutes;
             double Y = 0;
