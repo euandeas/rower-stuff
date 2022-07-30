@@ -35,7 +35,7 @@ namespace RowerStuff.Fragments
             enteredSplitMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSplitSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
 
-            CardView predictDistanceCard = view.FindViewById<CardView>(Resource.Id.actualDistanceCard);
+            CardView predictDistanceCard = view.FindViewById<CardView>(Resource.Id.predictDistanceCard);
             predictDistance = predictDistanceCard.FindViewById<EditText>(Resource.Id.enteredDistance);
 
             result = view.FindViewById<TextView>(Resource.Id.predictionResult);
