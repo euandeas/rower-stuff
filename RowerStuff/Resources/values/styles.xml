@@ -33,11 +33,17 @@
 		<item name="android:statusBarColor">@android:color/transparent</item>
 		<item name="android:windowLightStatusBar">true</item>
 
+		<item name="preferenceTheme">@style/PrefsTheme</item>
 	</style>
 
 	<style name="Theme.App.Starting" parent="Theme.SplashScreen.IconBackground">
+		<item name="windowSplashScreenBackground">@color/md_theme_light_surface</item>
 		<item name="windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
 		<item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
 		<item name="postSplashScreenTheme">@style/AppTheme</item>
+	</style>
+
+	<style name="PrefsTheme" parent="PreferenceThemeOverlay.v14.Material">
+		<item name="android:layout">@layout/fragment_settings</item>
 	</style>
 </resources>

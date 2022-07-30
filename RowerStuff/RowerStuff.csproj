@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="Resources\drawable\ic_launcher_foreground.xml" />
     <None Remove="Resources\drawable\round_info_icon.xml" />
+    <None Remove="Resources\drawable\settings_icon.xml" />
     <None Remove="Resources\layout\button_calculate.xml" />
     <None Remove="Resources\layout\card_2k_time.xml" />
     <None Remove="Resources\layout\card_body_weight.xml" />
@@ -22,6 +23,7 @@
     <None Remove="Resources\layout\fragment_percentage_pace.xml" />
     <None Remove="Resources\layout\fragment_percentage_watts.xml" />
     <None Remove="Resources\layout\fragment_rate.xml" />
+    <None Remove="Resources\layout\fragment_settings.xml" />
     <None Remove="Resources\layout\fragment_steady_state.xml" />
     <None Remove="Resources\layout\fragment_vo2_max.xml" />
     <None Remove="Resources\layout\fragment_watts.xml" />
@@ -39,13 +41,15 @@
     <None Remove="Resources\values\colors.xml" />
     <None Remove="Resources\values\dimens.xml" />
     <None Remove="Resources\values\styles.xml" />
+    <None Remove="Resources\xml\preferences.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.4.2.1" />
     <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.0.1-rc01" />
-    <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.4.1.2" />
-    <PackageReference Include="Xamarin.AndroidX.Navigation.Fragment" Version="2.4.2.1" />
-    <PackageReference Include="Xamarin.AndroidX.Navigation.UI" Version="2.4.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.5.0" />
+    <PackageReference Include="Xamarin.AndroidX.Navigation.Fragment" Version="2.5.0" />
+    <PackageReference Include="Xamarin.AndroidX.Navigation.UI" Version="2.5.0" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.2" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.6.1.1" />
   </ItemGroup>
 </Project>

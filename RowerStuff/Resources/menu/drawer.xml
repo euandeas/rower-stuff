@@ -42,4 +42,11 @@
 			android:id="@+id/rateFragment"
 			android:title="Rate" />
 	</group>
+
+	<group android:checkableBehavior="single" android:id="@+id/group5">
+		<item
+			android:id="@+id/settingsFragment"
+			android:title="Settings" 
+			android:icon="@drawable/settings_icon"/>
+	</group>
 </menu>

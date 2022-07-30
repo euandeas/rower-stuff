@@ -32,5 +32,14 @@
 		<item name="android:navigationBarColor">?attr/colorSurface</item>
 		<item name="android:statusBarColor">@android:color/transparent</item>
 		<item name="android:windowLightStatusBar">false</item>
+
+		<item name="preferenceTheme">@style/PrefsTheme</item>
     </style>
+
+	<style name="Theme.App.Starting" parent="Theme.SplashScreen.IconBackground">
+		<item name="windowSplashScreenBackground">@color/md_theme_dark_surface</item>
+		<item name="windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
+		<item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+		<item name="postSplashScreenTheme">@style/AppTheme</item>
+	</style>
 </resources>

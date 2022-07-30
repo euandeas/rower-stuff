@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Rower Stuff</string>
+	<string name="app_version">3.0.0</string>
+
+	<string name="theme_def_value">System Default</string>
+	<string-array name="theme_array_entries">
+		<item>System Default</item>
+		<item>Light</item>
+		<item>Dark</item>
+	</string-array>
+
 
 	<string name="distance_label">Distance</string>
 	<string name="split_label">500 M Split</string>

@@ -2,6 +2,7 @@
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:startDestination="@id/paceFragment">
+
 	<fragment
         android:id="@+id/paceFragment"
         android:name="RowerStuff.Fragments.PaceFragment"
@@ -41,4 +42,9 @@
         android:id="@+id/rateFragment"
         android:name="RowerStuff.Fragments.RateFragment"
         android:label="Rate"/>
+
+	<fragment
+        android:id="@+id/settingsFragment"
+        android:name="RowerStuff.Fragments.SettingsFragment"
+        android:label="Settings"/>
 </navigation>
