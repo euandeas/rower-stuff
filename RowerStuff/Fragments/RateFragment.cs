@@ -1,5 +1,6 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using Fragment = AndroidX.Fragment.App.Fragment;
@@ -23,7 +24,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "Rate",
+                "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             rateLabel = view.FindViewById<TextView>(Resource.Id.rateLabel);
             Button tapButton = view.FindViewById<Button>(Resource.Id.tapButton);
@@ -36,28 +43,6 @@ namespace RowerStuff.Fragments
         private void TapButton_Click(object? sender, EventArgs e)
         {
             rateLabel.Text = $"{spm.Beat()}";
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "Rate", "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using System.Globalization;
@@ -30,7 +31,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "VO2 Max",
+                "This will estimate you VO2 Max. VO2 max is a measure of the maximum amount of oxygen your body can utilize during exercise. Real world testing will always give more accurate results.\n\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             enteredBodyWeight = view.FindViewById<EditText>(Resource.Id.enteredBodyWeight);
             weightSpinner = view.FindViewById<Spinner>(Resource.Id.weightUnitSpinner);
@@ -107,28 +114,6 @@ namespace RowerStuff.Fragments
             {
                 Toast.MakeText(Activity, "Make sure all values have been entered.", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "VO2 Max", "This will estimate you VO2 Max. VO2 max is a measure of the maximum amount of oxygen your body can utilize during exercise. Real world testing will always give more accurate results.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

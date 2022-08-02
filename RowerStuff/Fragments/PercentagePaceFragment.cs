@@ -1,5 +1,6 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using Fragment = AndroidX.Fragment.App.Fragment;
@@ -26,7 +27,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "Percentage Pace",
+                "Enter a split and the chosen percentage of that split, worked out using the wattage, will be returned.\n\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             enteredSplitMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSplitSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
@@ -80,28 +87,6 @@ namespace RowerStuff.Fragments
             {
                 Toast.MakeText(Activity, "Must enter a split!", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "Percentage Pace", "Enter a split and the chosen percentage of that split, worked out using the wattage, will be returned.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

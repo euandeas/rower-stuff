@@ -1,6 +1,7 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
 using AndroidX.CardView.Widget;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using Fragment = AndroidX.Fragment.App.Fragment;
@@ -27,7 +28,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity, 
+                "Pace", 
+                "Enter a pair of values and when you press the calculate button the third value will be returned.\n\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
             
@@ -118,28 +125,6 @@ namespace RowerStuff.Fragments
             {
                 Toast.MakeText(Activity, "Must enter a pair of values!", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "Pace", "Enter a pair of values and when you press the calculate button the third value will be returned.\n\nTo clear all data hold the calculate button.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

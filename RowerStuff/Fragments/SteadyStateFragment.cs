@@ -1,5 +1,6 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using Fragment = AndroidX.Fragment.App.Fragment;
@@ -24,7 +25,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "Steady State",
+                "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.\n\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
@@ -67,28 +74,6 @@ namespace RowerStuff.Fragments
             {
                 Toast.MakeText(Activity, "Must enter a time!", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "Steady State", "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

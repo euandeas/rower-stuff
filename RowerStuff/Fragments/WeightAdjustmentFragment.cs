@@ -1,5 +1,6 @@
 ﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
 using RowerStuff.Models;
 using System.Globalization;
@@ -29,7 +30,13 @@ namespace RowerStuff.Fragments
 
             MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             (Activity as MainActivity).SetupToolBar(toolbar);
-            HasOptionsMenu = true;
+
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "Weight Adjustment",
+                "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.\n\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             enteredBodyWeight = view.FindViewById<EditText>(Resource.Id.enteredBodyWeight);
             weightSpinner = view.FindViewById<Spinner>(Resource.Id.weightUnitSpinner);
@@ -122,28 +129,6 @@ namespace RowerStuff.Fragments
             {
                 Toast.MakeText(Activity, "Must enter body weight!", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
-        {
-            inflater.Inflate(Resource.Menu.toolbar, menu);
-
-            if (menu is MenuBuilder m)
-            {
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.info)
-            {
-                Helpers.HelpDialog(Activity, "Weight Adjustment", "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.");
-            }
-
-            return base.OnOptionsItemSelected(item);
         }
     }
 }

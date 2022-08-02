@@ -1,4 +1,6 @@
-﻿using AndroidX.Fragment.App;
+﻿using Android.Views;
+using AndroidX.Core.View;
+using AndroidX.Fragment.App;
 using Google.Android.Material.Dialog;
 using System.Globalization;
 
@@ -34,6 +36,35 @@ namespace RowerStuff
                 dialog.Dispose();
             });
             dialog.Show();
+        }
+
+        public class StandardInfoMenu : Java.Lang.Object, IMenuProvider
+        {
+            FragmentActivity activity;
+            string toolName;
+            string usage;
+
+            public StandardInfoMenu(FragmentActivity activity, string toolName, string usage)
+            {
+                this.activity = activity;
+                this.toolName = toolName;
+                this.usage = usage;
+            }
+
+            public void OnCreateMenu(IMenu menu, MenuInflater menuInflater)
+            {
+                menuInflater.Inflate(Resource.Menu.toolbar, menu);
+            }
+
+            public bool OnMenuItemSelected(IMenuItem item)
+            {
+                if (item.ItemId == Resource.Id.info)
+                {
+                    HelpDialog(activity, toolName, usage);
+                }
+
+                return true;
+            }
         }
 
     }

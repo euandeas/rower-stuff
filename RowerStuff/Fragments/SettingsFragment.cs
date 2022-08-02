@@ -1,9 +1,7 @@
-﻿using Android.Views;
-using AndroidX.AppCompat.View.Menu;
-using AndroidX.CardView.Widget;
-using AndroidX.Preference;
+﻿using Android.OS;
+using Android.Views;
 using AndroidX.AppCompat.App;
-using Android.OS;
+using AndroidX.Preference;
 using Google.Android.Material.AppBar;
 
 namespace RowerStuff.Fragments
