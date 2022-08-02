@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen 
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<PreferenceCategory
 		app:key="appsettings_category"
@@ -16,8 +18,32 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory
+	app:key="feedback_category"
+	app:title="Feedback">
+
+		<Preference
+            android:title="Send Feedback"
+            android:summary="via email">
+			<intent android:action="android.intent.action.VIEW"
+                    android:data="mailto:euandeasapps@gmail.com">
+			</intent>
+		</Preference>
+
+	</PreferenceCategory>
+
+	<PreferenceCategory
 		app:key="about_category"
 		app:title="About">
+
+		<Preference app:title="Developer Site" >
+			<intent android:action="android.intent.action.VIEW"
+					android:data="https://euandeas.com" />
+		</Preference>
+
+		<Preference app:title="Privacy Policy" >
+			<intent android:action="android.intent.action.VIEW"
+					android:data="https://euandeas.com/privacy" />
+		</Preference>
 
 		<Preference
 		  app:key="version"
