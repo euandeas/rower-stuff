@@ -1,36 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
-<LinearLayout 
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/toolbar"
-        android:layout_marginBottom="@dimen/mp_small"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/toolbar"
+            android:layout_marginBottom="@dimen/mp_small"/>
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/card_split"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/card_split"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small"/>
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/card_watts"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small"/>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/card_watts"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small"/>
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/button_calculate"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small"/>
-</LinearLayout>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/button_calculate"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small"/>
+    </LinearLayout>
+</ScrollView>

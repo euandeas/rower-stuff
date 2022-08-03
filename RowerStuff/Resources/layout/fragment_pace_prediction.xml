@@ -1,131 +1,135 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
-<LinearLayout 
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/toolbar"
-        android:layout_marginBottom="@dimen/mp_small"/>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/actualDistanceCard"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        cardview:cardElevation="4dp"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <include
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mp_large"
-            android:orientation="vertical">
-            <TextView
-                android:text="@string/actual_distance_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/mp_small"
-                android:id="@+id/actualDistanceLabel"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-            <include
-                android:layout_width="@dimen/data_entry_area"
-                android:layout_height="wrap_content"
-                layout="@layout/layout_distance"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            layout="@layout/toolbar"
+            android:layout_marginBottom="@dimen/mp_small"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/actualSplitCard"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        cardview:cardElevation="4dp"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/actualDistanceCard"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mp_large"
-            android:orientation="vertical">
-            <TextView
-                android:text="@string/actual_split_label"
+            cardview:cardElevation="4dp"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/mp_small"
-                android:id="@+id/actualSplitLabel"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-            <include
-                android:layout_width="@dimen/data_entry_area"
-                android:layout_height="wrap_content"
-                layout="@layout/layout_time"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:layout_margin="@dimen/mp_large"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/actual_distance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:id="@+id/actualDistanceLabel"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                <include
+                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_distance"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/predictDistanceCard"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        cardview:cardElevation="4dp"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/actualSplitCard"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mp_large"
-            android:orientation="vertical">
-            <TextView
-                android:text="@string/predict_distance_label"
+            cardview:cardElevation="4dp"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/mp_small"
-                android:id="@+id/predictDistanceLabel"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-            <include
-                android:layout_width="@dimen/data_entry_area"
-                android:layout_height="wrap_content"
-                layout="@layout/layout_distance"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:layout_margin="@dimen/mp_large"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/actual_split_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:id="@+id/actualSplitLabel"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                <include
+                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_time"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/predictedSplitCard"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        cardview:cardElevation="4dp"
-        android:layout_marginBottom="@dimen/mp_small"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/predictDistanceCard"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mp_large"
-            android:orientation="vertical">
-            <TextView
-                android:text="@string/predicted_split_label"
+            cardview:cardElevation="4dp"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/mp_small"
-                android:id="@+id/predictedSplitLabel"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-            <TextView
-                android:id="@+id/predictionResult"
+                android:layout_margin="@dimen/mp_large"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/predict_distance_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:id="@+id/predictDistanceLabel"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                <include
+                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_distance"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/predictedSplitCard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            cardview:cardElevation="4dp"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceTitleLarge"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:layout_margin="@dimen/mp_large"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/predicted_split_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:id="@+id/predictedSplitLabel"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                <TextView
+                    android:id="@+id/predictionResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/button_calculate"
-        android:layout_marginLeft="@dimen/mp_small"
-        android:layout_marginRight="@dimen/mp_small"/>
-</LinearLayout>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/button_calculate"
+            android:layout_marginLeft="@dimen/mp_small"
+            android:layout_marginRight="@dimen/mp_small"/>
+    </LinearLayout>
+</ScrollView>
