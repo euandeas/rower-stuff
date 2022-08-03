@@ -16,12 +16,12 @@ namespace RowerStuff.Fragments
         private SeekBar seekBar;
         private TextView result;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.fragment_percentage_watts, container, false);
 
@@ -39,7 +39,7 @@ namespace RowerStuff.Fragments
 
             percentageLabel = view.FindViewById<TextView>(Resource.Id.percentageLabel);
             seekBar = view.FindViewById<SeekBar>(Resource.Id.seekBar);
-            seekBar.ProgressChanged += (object sender, SeekBar.ProgressChangedEventArgs e) =>
+            seekBar.ProgressChanged += (object? sender, SeekBar.ProgressChangedEventArgs e) =>
             {
                 percentageLabel.Text = ($"{e.Progress}%");
             };

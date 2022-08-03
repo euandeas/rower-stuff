@@ -8,7 +8,7 @@ namespace RowerStuff.Fragments
 {
     public class SettingsFragment : PreferenceFragmentCompat
     {
-        public override void OnCreatePreferences(Bundle savedInstanceState, string rootKey)
+        public override void OnCreatePreferences(Bundle? savedInstanceState, string? rootKey)
         {
             SetPreferencesFromResource(Resource.Xml.preferences, rootKey);
             ListPreference theme = (ListPreference)FindPreference("theme_preference");
@@ -16,7 +16,7 @@ namespace RowerStuff.Fragments
             theme.PreferenceChange += Theme_PreferenceChange;
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
 
@@ -29,7 +29,7 @@ namespace RowerStuff.Fragments
             return view;
         }
 
-        private void Theme_PreferenceChange(object sender, Preference.PreferenceChangeEventArgs e)
+        private void Theme_PreferenceChange(object? sender, Preference.PreferenceChangeEventArgs? e)
         {
             switch (e.NewValue.ToString())
             {

@@ -19,12 +19,12 @@ namespace RowerStuff.Fragments
         private TextView resultLabel;
         private TextView result;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.fragment_weight_adjustment, container, false);
 
