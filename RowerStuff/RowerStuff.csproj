@@ -11,7 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Resources\drawable\ic_launcher_foreground.xml" />
-    <None Remove="Resources\drawable\round_info_icon.xml" />
+    <None Remove="Resources\drawable\info_icon.xml" />
     <None Remove="Resources\drawable\settings_icon.xml" />
     <None Remove="Resources\layout\button_calculate.xml" />
     <None Remove="Resources\layout\card_2k_time.xml" />

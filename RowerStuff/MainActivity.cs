@@ -25,15 +25,15 @@ namespace RowerStuff
             if (savedInstanceState == null)
             {
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
-                switch (prefs.GetString("theme_preference", "sysdefault"))
+                switch (prefs.GetString("theme_preference", "System Default"))
                 {
-                    case "light":
+                    case "Light":
                         base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightNo);
                         break;
-                    case "dark":
+                    case "Dark":
                         base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
                         break;
-                    case "sysdefault":
+                    case "System Default":
                         base.Delegate.SetLocalNightMode((Build.VERSION.SdkInt >= BuildVersionCodes.Q) ? AppCompatDelegate.ModeNightFollowSystem : AppCompatDelegate.ModeNightAutoBattery);
                         break;
                 }
