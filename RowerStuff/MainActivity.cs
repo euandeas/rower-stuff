@@ -1,4 +1,5 @@
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using AndroidX.AppCompat.App;
@@ -13,7 +14,7 @@ using SplashScreenX = AndroidX.Core.SplashScreen.SplashScreen;
 
 namespace RowerStuff
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/Theme.App.Starting", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.App.Starting", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private NavController navController;
