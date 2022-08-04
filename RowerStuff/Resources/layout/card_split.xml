@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splitCard"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    cardview:cardElevation="4dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mp_large"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/split_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:id="@+id/splitLabel"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/layout_time"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
