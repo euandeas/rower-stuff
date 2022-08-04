@@ -1,4 +1,5 @@
 ﻿using Android.Views;
+using AndroidX.CardView.Widget;
 using AndroidX.Core.View;
 using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
@@ -39,14 +40,19 @@ namespace RowerStuff.Fragments
                 "This will estimate you VO2 Max. VO2 max is a measure of the maximum amount of oxygen your body can utilize during exercise. Real world testing will always give more accurate results.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView bodyWeightCard = view.FindViewById<CardView>(Resource.Id.bodyWeightCard);
             enteredBodyWeight = view.FindViewById<EditText>(Resource.Id.enteredBodyWeight);
+            bodyWeightCard.LongClick += (s, e) => enteredBodyWeight.Text = "";
+
             weightSpinner = view.FindViewById<Spinner>(Resource.Id.weightUnitSpinner);
             ArrayAdapter wAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.weight_units_array, Android.Resource.Layout.SimpleSpinnerItem);
             wAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             weightSpinner.Adapter = wAdapter;
 
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.twokTimeCard);
             enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
+            splitCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; };
 
             genderSpinner = view.FindViewById<Spinner>(Resource.Id.genderSpinner);
             ArrayAdapter gAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.gender_array, Android.Resource.Layout.SimpleSpinnerItem);

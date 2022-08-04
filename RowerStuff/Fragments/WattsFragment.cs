@@ -1,4 +1,5 @@
 ﻿using Android.Views;
+using AndroidX.CardView.Widget;
 using AndroidX.Core.View;
 using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
@@ -34,10 +35,14 @@ namespace RowerStuff.Fragments
                 "Enter either splits or watts and it will be converted to the other.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);
             enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
+            splitCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; };
 
+            CardView wattsCard = view.FindViewById<CardView>(Resource.Id.wattsCard);
             enteredWatts = view.FindViewById<EditText>(Resource.Id.enteredWatts);
+            wattsCard.LongClick += (s, e) => enteredWatts.Text = "";
 
             Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
             calculateButton.Click += CalculateButton_Click;

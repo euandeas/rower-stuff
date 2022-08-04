@@ -1,4 +1,5 @@
 ﻿using Android.Views;
+using AndroidX.CardView.Widget;
 using AndroidX.Core.View;
 using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
@@ -35,7 +36,9 @@ namespace RowerStuff.Fragments
                 "Enter watts and the chosen percentage of the watts will be returned.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView wattsCard = view.FindViewById<CardView>(Resource.Id.wattsCard);
             enteredWatts = view.FindViewById<EditText>(Resource.Id.enteredWatts);
+            wattsCard.LongClick += (s, e) => enteredWatts.Text = "";
 
             percentageLabel = view.FindViewById<TextView>(Resource.Id.percentageLabel);
             seekBar = view.FindViewById<SeekBar>(Resource.Id.seekBar);

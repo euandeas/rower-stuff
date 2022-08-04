@@ -38,12 +38,16 @@ namespace RowerStuff.Fragments
 
             CardView actualDistanceCard = view.FindViewById<CardView>(Resource.Id.actualDistanceCard);
             actualDistance = actualDistanceCard.FindViewById<EditText>(Resource.Id.enteredDistance);
+            actualDistanceCard.LongClick += (s, e) => actualDistance.Text = "";
 
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.actualSplitCard);
             enteredSplitMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSplitSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
+            splitCard.LongClick += (s, e) => { enteredSplitMin.Text = ""; enteredSplitSec.Text = ""; };
 
             CardView predictDistanceCard = view.FindViewById<CardView>(Resource.Id.predictDistanceCard);
             predictDistance = predictDistanceCard.FindViewById<EditText>(Resource.Id.enteredDistance);
+            predictDistanceCard.LongClick += (s, e) => predictDistance.Text = "";
 
             result = view.FindViewById<TextView>(Resource.Id.predictionResult);
 

@@ -1,4 +1,5 @@
 ﻿using Android.Views;
+using AndroidX.CardView.Widget;
 using AndroidX.Core.View;
 using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
@@ -38,16 +39,20 @@ namespace RowerStuff.Fragments
                 "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView bodyWeightCard = view.FindViewById<CardView>(Resource.Id.bodyWeightCard);
             enteredBodyWeight = view.FindViewById<EditText>(Resource.Id.enteredBodyWeight);
+            bodyWeightCard.LongClick += (s, e) => enteredBodyWeight.Text = "";
+
             weightSpinner = view.FindViewById<Spinner>(Resource.Id.weightUnitSpinner);
             ArrayAdapter wAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.weight_units_array, Android.Resource.Layout.SimpleSpinnerItem);
             wAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            weightSpinner.Adapter = wAdapter;       
+            weightSpinner.Adapter = wAdapter;
 
+            CardView timeDistanceCard = view.FindViewById<CardView>(Resource.Id.timeDistanceCard);
             enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
-            enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
-            
+            enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec); 
             enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
+            timeDistanceCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; enteredDistance.Text = ""; };
 
             resultLabel = view.FindViewById<TextView>(Resource.Id.adjustedResultLabel);
             result = view.FindViewById<TextView>(Resource.Id.adjustedResult);

@@ -1,4 +1,5 @@
 ﻿using Android.Views;
+using AndroidX.CardView.Widget;
 using AndroidX.Core.View;
 using AndroidX.Lifecycle;
 using Google.Android.Material.AppBar;
@@ -33,8 +34,10 @@ namespace RowerStuff.Fragments
                 "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.steadyStatePaceCard);
             enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
+            splitCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; };
 
             result = view.FindViewById<TextView>(Resource.Id.paceRange);
 

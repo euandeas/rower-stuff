@@ -36,16 +36,20 @@ namespace RowerStuff.Fragments
                 "Enter a pair of values and when you press the calculate button the third value will be returned.\n\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
+            CardView distanceCard = view.FindViewById<CardView>(Resource.Id.distanceCard);
             enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
+            distanceCard.LongClick += (s, e) =>  enteredDistance.Text = "";
             
             CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);
             enteredSplitMin = splitCard.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredSplitSec = splitCard.FindViewById<EditText>(Resource.Id.enteredSec);
+            splitCard.LongClick += (s, e) => { enteredSplitMin.Text = ""; enteredSplitSec.Text = ""; };
             
             CardView timeCard = view.FindViewById<CardView>(Resource.Id.timeCard);
             enteredTimeMin = timeCard.FindViewById<EditText>(Resource.Id.enteredMin);
             enteredTimeSec = timeCard.FindViewById<EditText>(Resource.Id.enteredSec);
-            
+            timeCard.LongClick += (s, e) => { enteredTimeMin.Text = ""; enteredTimeSec.Text = ""; };
+
             Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
             calculateButton.Click += CalculateButton_Click;
             calculateButton.LongClick += CalculateButton_LongClick;
