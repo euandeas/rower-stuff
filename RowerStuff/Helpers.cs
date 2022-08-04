@@ -8,7 +8,6 @@ namespace RowerStuff
 {
     static class Helpers
     {
-
         public static TimeSpan ParseMinSecMS(string inputMins, string inputSecs)
         {
             string minutes = inputMins;
@@ -40,9 +39,9 @@ namespace RowerStuff
 
         public class StandardInfoMenu : Java.Lang.Object, IMenuProvider
         {
-            FragmentActivity activity;
-            string toolName;
-            string usage;
+            readonly FragmentActivity activity;
+            readonly string toolName;
+            readonly string usage;
 
             public StandardInfoMenu(FragmentActivity activity, string toolName, string usage)
             {

@@ -22,26 +22,26 @@ namespace RowerStuff.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.fragment_steady_state, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_steady_state, container, false)!;
 
-            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            (Activity as MainActivity).SetupToolBar(toolbar);
+            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            (Activity as MainActivity)!.SetupToolBar(toolbar);
 
             IMenuHost menuHost = RequireActivity();
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Steady State",
                 "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
-                , ViewLifecycleOwner, Lifecycle.State.Resumed);
+                , ViewLifecycleOwner, Lifecycle.State.Resumed!);
 
-            CardView splitCard = view.FindViewById<CardView>(Resource.Id.steadyStatePaceCard);
-            enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin);
-            enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec);
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.steadyStatePaceCard)!;
+            enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin)!;
+            enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec)!;
             splitCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; };
 
-            result = view.FindViewById<TextView>(Resource.Id.paceRange);
+            result = view.FindViewById<TextView>(Resource.Id.paceRange)!;
 
-            Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
+            Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton)!;
             calculateButton.Click += CalculateButton_Click;
             calculateButton.LongClick += CalculateButton_LongClick;
 
@@ -59,9 +59,9 @@ namespace RowerStuff.Fragments
         {
             if ((enteredMin.Text != "" || enteredSec.Text != ""))
             {
-                if (Helpers.ParseMinSecMS(enteredMin.Text, enteredSec.Text) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
+                if (Helpers.ParseMinSecMS(enteredMin.Text!, enteredSec.Text!) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
                 {
-                    Toast.MakeText(Activity, "2KM PB time has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "2KM PB time has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
@@ -75,7 +75,7 @@ namespace RowerStuff.Fragments
             }
             else
             {
-                Toast.MakeText(Activity, "Must enter a time!", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Must enter a time!", ToastLength.Short)!.Show();
             }
         }
     }

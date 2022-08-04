@@ -24,33 +24,33 @@ namespace RowerStuff.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.fragment_pace, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_pace, container, false)!;
 
-            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            (Activity as MainActivity).SetupToolBar(toolbar);
+            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            (Activity as MainActivity)!.SetupToolBar(toolbar);
 
             IMenuHost menuHost = RequireActivity();
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity, 
                 "Pace", 
                 "Enter a pair of values and when you press the calculate button the third value will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
-                , ViewLifecycleOwner, Lifecycle.State.Resumed);
+                , ViewLifecycleOwner, Lifecycle.State.Resumed!);
 
-            CardView distanceCard = view.FindViewById<CardView>(Resource.Id.distanceCard);
-            enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
+            CardView distanceCard = view.FindViewById<CardView>(Resource.Id.distanceCard)!;
+            enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance)!;
             distanceCard.LongClick += (s, e) =>  enteredDistance.Text = "";
             
-            CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);
-            enteredSplitMin = splitCard.FindViewById<EditText>(Resource.Id.enteredMin);
-            enteredSplitSec = splitCard.FindViewById<EditText>(Resource.Id.enteredSec);
+            CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard)!;
+            enteredSplitMin = splitCard.FindViewById<EditText>(Resource.Id.enteredMin)!;
+            enteredSplitSec = splitCard.FindViewById<EditText>(Resource.Id.enteredSec)!;
             splitCard.LongClick += (s, e) => { enteredSplitMin.Text = ""; enteredSplitSec.Text = ""; };
             
-            CardView timeCard = view.FindViewById<CardView>(Resource.Id.timeCard);
-            enteredTimeMin = timeCard.FindViewById<EditText>(Resource.Id.enteredMin);
-            enteredTimeSec = timeCard.FindViewById<EditText>(Resource.Id.enteredSec);
+            CardView timeCard = view.FindViewById<CardView>(Resource.Id.timeCard)!;
+            enteredTimeMin = timeCard.FindViewById<EditText>(Resource.Id.enteredMin)!;
+            enteredTimeSec = timeCard.FindViewById<EditText>(Resource.Id.enteredSec)!;
             timeCard.LongClick += (s, e) => { enteredTimeMin.Text = ""; enteredTimeSec.Text = ""; };
 
-            Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
+            Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton)!;
             calculateButton.Click += CalculateButton_Click;
             calculateButton.LongClick += CalculateButton_LongClick;
 
@@ -71,15 +71,15 @@ namespace RowerStuff.Fragments
             //Calculate Distance - distance = (time/split) * 500
             if ((enteredDistance.Text == "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
-                if (Helpers.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text) is TimeSpan parsedSplitTime && parsedSplitTime.TotalSeconds == 0)
+                if (Helpers.ParseMinSecMS(enteredSplitMin.Text!, enteredSplitSec.Text!) is TimeSpan parsedSplitTime && parsedSplitTime.TotalSeconds == 0)
                 {
-                    Toast.MakeText(Activity, "Split has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Split has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
-                if (Helpers.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
+                if (Helpers.ParseMinSecMS(enteredTimeMin.Text!, enteredTimeSec.Text!) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
                 {
-                    Toast.MakeText(Activity, "Time has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Time has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
@@ -89,15 +89,15 @@ namespace RowerStuff.Fragments
             //Calculate split - split = 500 * (time/distance)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text == "" && enteredSplitSec.Text == "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != ""))
             {
-                if (Helpers.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
+                if (Helpers.ParseMinSecMS(enteredTimeMin.Text!, enteredTimeSec.Text!) is TimeSpan parsedTotalTime && parsedTotalTime.TotalSeconds == 0)
                 {
-                    Toast.MakeText(Activity, "Time has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Time has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
-                if(int.Parse(enteredDistance.Text) is int distance && distance == 0)
+                if(int.Parse(enteredDistance.Text!) is int distance && distance == 0)
                 {
-                    Toast.MakeText(Activity, "Distance has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Distance has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
@@ -109,15 +109,15 @@ namespace RowerStuff.Fragments
             //Calculate total time - time = split * (distance/500)
             else if ((enteredDistance.Text != "") && (enteredSplitMin.Text != "" || enteredSplitSec.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
             {
-                if (Helpers.ParseMinSecMS(enteredSplitMin.Text, enteredSplitSec.Text) is TimeSpan parsedSplitTime && parsedSplitTime.TotalSeconds == 0)
+                if (Helpers.ParseMinSecMS(enteredSplitMin.Text!, enteredSplitSec.Text!) is TimeSpan parsedSplitTime && parsedSplitTime.TotalSeconds == 0)
                 {
-                    Toast.MakeText(Activity, "Split has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Split has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
-                if (int.Parse(enteredDistance.Text) is int distance && distance == 0)
+                if (int.Parse(enteredDistance.Text!) is int distance && distance == 0)
                 {
-                    Toast.MakeText(Activity, "Distance has no value!", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Distance has no value!", ToastLength.Short)!.Show();
                     return;
                 }
 
@@ -127,7 +127,7 @@ namespace RowerStuff.Fragments
             }
             else
             {
-                Toast.MakeText(Activity, "Must enter a pair of values!", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Must enter a pair of values!", ToastLength.Short)!.Show();
             }
         }
     }

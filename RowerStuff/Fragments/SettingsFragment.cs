@@ -11,7 +11,7 @@ namespace RowerStuff.Fragments
         public override void OnCreatePreferences(Bundle? savedInstanceState, string? rootKey)
         {
             SetPreferencesFromResource(Resource.Xml.preferences, rootKey);
-            ListPreference theme = (ListPreference)FindPreference("theme_preference");
+            ListPreference theme = (ListPreference)FindPreference("theme_preference")!;
 
             theme.PreferenceChange += Theme_PreferenceChange;
         }
@@ -20,27 +20,26 @@ namespace RowerStuff.Fragments
         {
             // Use this to return your custom view for this Fragment
 
-            View view = base.OnCreateView(inflater, container, savedInstanceState);
+            View view = base.OnCreateView(inflater, container, savedInstanceState)!;
 
-            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            (Activity as MainActivity).SetupToolBar(toolbar);
-
+            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            (Activity as MainActivity)!.SetupToolBar(toolbar);
 
             return view;
         }
 
         private void Theme_PreferenceChange(object? sender, Preference.PreferenceChangeEventArgs? e)
         {
-            switch (e.NewValue.ToString())
+            switch (e!.NewValue!.ToString())
             {
                 case "Light":
-                    ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightNo);
+                    ((AppCompatActivity)Activity!).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightNo);
                     break;
                 case "Dark":
-                    ((AppCompatActivity)Activity).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
+                    ((AppCompatActivity)Activity!).Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
                     break;
                 case "System Default":
-                    ((AppCompatActivity)Activity).Delegate.SetLocalNightMode((Build.VERSION.SdkInt >= BuildVersionCodes.Q) ? AppCompatDelegate.ModeNightFollowSystem : AppCompatDelegate.ModeNightAutoBattery);
+                    ((AppCompatActivity)Activity!).Delegate.SetLocalNightMode((Build.VERSION.SdkInt >= BuildVersionCodes.Q) ? AppCompatDelegate.ModeNightFollowSystem : AppCompatDelegate.ModeNightAutoBattery);
                     break;
             }
         }

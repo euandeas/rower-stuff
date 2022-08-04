@@ -20,20 +20,20 @@ namespace RowerStuff.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.fragment_rate, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_rate, container, false)!;
 
-            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            (Activity as MainActivity).SetupToolBar(toolbar);
+            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            (Activity as MainActivity)!.SetupToolBar(toolbar);
 
             IMenuHost menuHost = RequireActivity();
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Rate",
                 "Simply tap the button at a reference point within the rower's/crew's stroke and then their current stroke rate will be displayed.")
-                , ViewLifecycleOwner, Lifecycle.State.Resumed);
+                , ViewLifecycleOwner, Lifecycle.State.Resumed!);
 
-            rateLabel = view.FindViewById<TextView>(Resource.Id.rateLabel);
-            Button tapButton = view.FindViewById<Button>(Resource.Id.tapButton);
+            rateLabel = view.FindViewById<TextView>(Resource.Id.rateLabel)!;
+            Button tapButton = view.FindViewById<Button>(Resource.Id.tapButton)!;
 
             tapButton.Click += TapButton_Click;
 

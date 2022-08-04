@@ -26,7 +26,7 @@ namespace RowerStuff
         {
             if (savedInstanceState == null)
             {
-                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context)!;
                 switch (prefs.GetString("theme_preference", "System Default"))
                 {
                     case "Light":
@@ -46,15 +46,15 @@ namespace RowerStuff
 
             base.OnCreate(savedInstanceState);
 
-            WindowCompat.SetDecorFitsSystemWindows(Window, false);
+            WindowCompat.SetDecorFitsSystemWindows(Window!, false);
 
             SetContentView(Resource.Layout.activity_main);
 
-            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout)!;
             drawer.SetStatusBarBackgroundColor(Color.Transparent);
 
-            navView = FindViewById<NavigationView>(Resource.Id.nav_view);
-            navController = ((NavHostFragment)SupportFragmentManager.FindFragmentById(Resource.Id.nav_host_fragment)).NavController;
+            navView = FindViewById<NavigationView>(Resource.Id.nav_view)!;
+            navController = ((NavHostFragment)SupportFragmentManager.FindFragmentById(Resource.Id.nav_host_fragment)!).NavController;
             appBarConfiguration = new AppBarConfiguration.Builder(
                 Resource.Id.paceFragment, 
                 Resource.Id.wattsFragment,
@@ -74,7 +74,7 @@ namespace RowerStuff
         public void SetupToolBar(MaterialToolbar toolbar)
         {
             SetSupportActionBar(toolbar);
-            SupportActionBar.Title = "Pace";
+            SupportActionBar!.Title = "Pace";
 
             NavigationUI.SetupWithNavController(toolbar, navController, appBarConfiguration);
         }
