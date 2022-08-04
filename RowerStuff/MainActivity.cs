@@ -1,27 +1,33 @@
-﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
+using Android.Graphics;
 using Android.OS;
 using AndroidX.AppCompat.App;
-using AndroidX.AppCompat.Widget;
-using FragmentTransaction = AndroidX.Fragment.App.FragmentTransaction;
-using RowerStuff.Fragments;
-using Android.Content.PM;
+using AndroidX.Core.View;
+using AndroidX.DrawerLayout.Widget;
+using AndroidX.Navigation;
+using AndroidX.Navigation.Fragment;
+using AndroidX.Navigation.UI;
 using AndroidX.Preference;
-using Android.Content;
-using Android.Runtime;
+using Google.Android.Material.AppBar;
+using Google.Android.Material.Navigation;
+using SplashScreenX = AndroidX.Core.SplashScreen.SplashScreen;
 
 namespace RowerStuff
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/Theme.App.Starting", ScreenOrientation = ScreenOrientation.Portrait, MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        private ISharedPreferences prefs = null;
+        private NavController navController;
+        private AppBarConfiguration appBarConfiguration;
+        private NavigationView navView;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle? savedInstanceState)
         {
             if (savedInstanceState == null)
             {
-                prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context);
-                switch (prefs.GetString("theme", "Light"))
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Application.Context)!;
+                switch (prefs.GetString("theme_preference", "System Default"))
                 {
                     case "Light":
                         base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightNo);
@@ -30,49 +36,48 @@ namespace RowerStuff
                         base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightYes);
                         break;
                     case "System Default":
-                        if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
-                        {
-                            base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightFollowSystem);
-                        }
-                        else
-                        {
-                            base.Delegate.SetLocalNightMode(AppCompatDelegate.ModeNightAutoBattery);
-                        }
+                        base.Delegate.SetLocalNightMode((Build.VERSION.SdkInt >= BuildVersionCodes.Q) ? AppCompatDelegate.ModeNightFollowSystem : AppCompatDelegate.ModeNightAutoBattery);
                         break;
                 }
             }
 
-            SetTheme(Resource.Style.AppTheme);
+            SplashScreenX.InstallSplashScreen(this);
+
 
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
+            WindowCompat.SetDecorFitsSystemWindows(Window!, false);
+
             SetContentView(Resource.Layout.activity_main);
 
-            //Ensures that the SDK has been initialized with our publisher app ID
-            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext);
+            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout)!;
+            drawer.SetStatusBarBackgroundColor(Color.Transparent);
 
-            SetSupportActionBar(FindViewById<Toolbar>(Resource.Id.maintoolbar));
-            SupportActionBar.Title = "Rower Stuff";
+            navView = FindViewById<NavigationView>(Resource.Id.nav_view)!;
+            navController = ((NavHostFragment)SupportFragmentManager.FindFragmentById(Resource.Id.nav_host_fragment)!).NavController;
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                Resource.Id.paceFragment, 
+                Resource.Id.wattsFragment,
+                Resource.Id.weightAdjustmentFragment,
+                Resource.Id.percentagePaceFragment,
+                Resource.Id.percentageWattsFragment,
+                Resource.Id.steadyStateFragment,
+                Resource.Id.pacePredictionFragment,
+                Resource.Id.vo2MaxFragment,
+                Resource.Id.rateFragment,
+                Resource.Id.settingsFragment
+                ).SetOpenableLayout(drawer).Build();
 
-            if (savedInstanceState == null)
-            {
-                FragmentTransaction fragmentTx = SupportFragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.container, new HomeFragment());
-                fragmentTx.Commit();
-            }
+            NavigationUI.SetupWithNavController(navView, navController);
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        public void SetupToolBar(MaterialToolbar toolbar)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            SetSupportActionBar(toolbar);
+            SupportActionBar!.Title = "Pace";
 
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            NavigationUI.SetupWithNavController(toolbar, navController, appBarConfiguration);
         }
 
-        public override bool OnSupportNavigateUp()
-        {
-            OnBackPressed();
-            return true;
-        }
     }
 }

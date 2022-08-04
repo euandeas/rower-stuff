@@ -1,25 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Rower Stuff</string>
-    <string name="banner_ad_unit_id">ca-app-pub-6671601320564750/3636554309</string>
-    <string-array name="weightUnits_array">
-      <item>lb</item>
-      <item>kg</item>
-    </string-array>
-    <string-array name="gender_array">
-      <item>Male</item>
-      <item>Female</item>
-    </string-array>
-    <string-array name="trainingLvl_array">
-      <item>High</item>
-      <item>Low</item>
-    </string-array>
-    <string-array name="percentageType_array">
-      <item>Pace</item>
-      <item>Watts</item>
-    </string-array>
-    <string-array name="theme_array">
-      <item>Light</item>
-      <item>Dark</item>
-      <item>System Default</item>
-    </string-array>
+	<string name="app_version">3.0.0</string>
+
+	<string name="theme_def_value">System Default</string>
+	<string-array name="theme_array_entries">
+		<item>System Default</item>
+		<item>Light</item>
+		<item>Dark</item>
+	</string-array>
+
+
+	<string name="distance_label">Distance</string>
+	<string name="split_label">500 M Split</string>
+	<string name="time_label">Total Time</string>
+	<string name="watts_label">Watts</string>
+	<string name="actual_distance_label">Actual Distance</string>
+	<string name="actual_split_label">Actual 500 M Split</string>
+	<string name="predict_distance_label">Distance to Predict</string>
+	<string name="predicted_split_label">Predicted Split</string>
+	<string name="percentage_pace_label">Resulting Pace</string>
+	<string name="percentage_watts_label">Resulting Watts</string>
+	<string name="twok_time_label">2000M PB</string>
+	<string name="steady_state_pace_label">Steady State Pace Range</string>
+	<string name="body_weight_label">Body Weight</string>
+	<string name="vo2_result_label">Estimated VO2 Max</string>
+	<string name="gender_label">Gender</string>
+	<string name="training_level_label">Training Level</string>
+	<string name="adjusted_result_label">Adjusted Result</string>
+	<string name="or_label">Or</string>
+	
+	<string name="calculate_label">Calculate</string>
+	<string name="tap_label">Tap</string>
+
+	<string name="distance_unit">M</string>
+	<string name="minute_unit">Mins</string>
+	<string name="rate_unit">SPM</string>
+	
+	<string name="colon">:</string>
+
+	<string name="rate_default">0</string>
+	<string name="min_hint">00</string>
+	<string name="sec_hint">00.00</string>
+	<string name="dist_hint">00000000</string>
+
+	<string-array name="weight_units_array">
+		<item>lb</item>
+		<item>kg</item>
+	</string-array>
+	<string-array name="gender_array">
+		<item>Male</item>
+		<item>Female</item>
+	</string-array>
+	<string-array name="training_level_array">
+		<item>High</item>
+		<item>Low</item>
+	</string-array>
 </resources>

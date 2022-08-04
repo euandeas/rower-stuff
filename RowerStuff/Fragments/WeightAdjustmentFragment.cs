@@ -1,174 +1,139 @@
-﻿using System;
-using Android.Gms.Ads;
-using Android.OS;
-using AndroidX.AppCompat.App;
-using AndroidX.AppCompat.View.Menu;
+﻿using Android.Views;
 using AndroidX.CardView.Widget;
-using Android.Views;
-using Android.Widget;
-using Fragment = AndroidX.Fragment.App.Fragment;
+using AndroidX.Core.View;
+using AndroidX.Lifecycle;
+using Google.Android.Material.AppBar;
+using RowerStuff.Models;
 using System.Globalization;
+using Fragment = AndroidX.Fragment.App.Fragment;
+
 
 namespace RowerStuff.Fragments
 {
     public class WeightAdjustmentFragment : Fragment
     {
-        private Button calculateButton;
-        private EditText enteredWeight;
-        private EditText enteredTimeMin;
-        private EditText enteredTimeSec;
+        private EditText enteredBodyWeight;
+        private Spinner weightSpinner;
+        private EditText enteredMin;
+        private EditText enteredSec;
         private EditText enteredDistance;
-        private TextView adjustedLabel;
-        private TextView adjustedAnswer;
-        private CardView adjustedCard;
-        private string whatUnit;
-        private ActionBar supportBar;
+        private TextView resultLabel;
+        private TextView result;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            View view = inflater.Inflate(Resource.Layout.fragment_weightadjustment, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_weight_adjustment, container, false)!;
 
-            supportBar = ((AppCompatActivity)Activity).SupportActionBar;
-            supportBar.Title = "Weight Adjustment";
-            supportBar.SetDisplayHomeAsUpEnabled(true);
-            supportBar.SetDisplayShowHomeEnabled(true);
-            HasOptionsMenu = true;
+            MaterialToolbar toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            (Activity as MainActivity)!.SetupToolBar(toolbar);
 
-            Spinner spinner = view.FindViewById<Spinner>(Resource.Id.weightUnit);
+            IMenuHost menuHost = RequireActivity();
+            menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
+                Activity,
+                "Weight Adjustment",
+                "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
+                , ViewLifecycleOwner, Lifecycle.State.Resumed!);
 
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.weightUnits_array, Android.Resource.Layout.SimpleSpinnerItem);
+            CardView bodyWeightCard = view.FindViewById<CardView>(Resource.Id.bodyWeightCard)!;
+            enteredBodyWeight = view.FindViewById<EditText>(Resource.Id.enteredBodyWeight)!;
+            bodyWeightCard.LongClick += (s, e) => enteredBodyWeight.Text = "";
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
+            weightSpinner = view.FindViewById<Spinner>(Resource.Id.weightUnitSpinner)!;
+            ArrayAdapter wAdapter = ArrayAdapter.CreateFromResource(view.Context!, Resource.Array.weight_units_array, Android.Resource.Layout.SimpleSpinnerItem);
+            wAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            weightSpinner.Adapter = wAdapter;
 
-            calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton);
-            enteredWeight = view.FindViewById<EditText>(Resource.Id.enteredWeight);
-            enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance);
-            enteredTimeMin = view.FindViewById<EditText>(Resource.Id.enteredTimeMin);
-            enteredTimeSec = view.FindViewById<EditText>(Resource.Id.enteredTimeSec);
-            adjustedLabel = view.FindViewById<TextView>(Resource.Id.adjustedLabel);
-            adjustedAnswer = view.FindViewById<TextView>(Resource.Id.adjustedAnswer);
-            adjustedCard = view.FindViewById<CardView>(Resource.Id.adjustedCard);
+            CardView timeDistanceCard = view.FindViewById<CardView>(Resource.Id.timeDistanceCard)!;
+            enteredMin = view.FindViewById<EditText>(Resource.Id.enteredMin)!;
+            enteredSec = view.FindViewById<EditText>(Resource.Id.enteredSec)!; 
+            enteredDistance = view.FindViewById<EditText>(Resource.Id.enteredDistance)!;
+            timeDistanceCard.LongClick += (s, e) => { enteredMin.Text = ""; enteredSec.Text = ""; enteredDistance.Text = ""; };
 
+            resultLabel = view.FindViewById<TextView>(Resource.Id.adjustedResultLabel)!;
+            result = view.FindViewById<TextView>(Resource.Id.adjustedResult)!;
+
+            Button calculateButton = view.FindViewById<Button>(Resource.Id.calculateButton)!;
             calculateButton.Click += CalculateButton_Click;
             calculateButton.LongClick += CalculateButton_LongClick;
-            adjustedCard.LongClick += (s, e) => CommonFunctions.CopyToClipBoard(adjustedLabel.Text, Activity);
-
-            //sends request for ad
-            var adView = view.FindViewById<AdView>(Resource.Id.adView);
-            var adRequest = new AdRequest.Builder().Build();
-            adView.LoadAd(adRequest);
 
             return view;
         }
 
-        public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+        private void CalculateButton_LongClick(object? sender, View.LongClickEventArgs e)
         {
-            inflater.Inflate(Resource.Menu.toolbar_menu, menu);
-
-            if (menu is MenuBuilder)
-            {
-                MenuBuilder m = (MenuBuilder)menu;
-                m.SetOptionalIconsVisible(true);
-            }
-
-            base.OnCreateOptionsMenu(menu, inflater);
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            if (item.ItemId == Resource.Id.menu_info)
-            {
-                CommonFunctions.HelpDialog(Activity, "Weight Adjustment", "Enter your body weight (either lbs or kgs) and then enter either the total time or distance of a piece. Click calculate and it will give you the adjusted result corresponding to what you entered.\n\nTo copy results hold down on the results card.\n\nTo clear all data hold the calculate button.");
-            }
-            return base.OnOptionsItemSelected(item);
-        }
-
-        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner spinner = (Spinner)sender;
-            string selectedSpinnerItem = spinner.GetItemAtPosition(e.Position).ToString();
-            if (selectedSpinnerItem == "kg")
-            {
-                whatUnit = "kg";
-            }
-            else if (selectedSpinnerItem == "lb")
-            {
-                whatUnit = "lb";
-            }
-        }
-
-        private void CalculateButton_LongClick(object sender, View.LongClickEventArgs e)
-        {
-            enteredWeight.Text = "";
-            enteredTimeMin.Text = "";
-            enteredTimeSec.Text = "";
+            enteredBodyWeight.Text = "";
+            enteredMin.Text = "";
+            enteredSec.Text = "";
             enteredDistance.Text = "";
-            adjustedLabel.Text = "Adjusted ...";
-            adjustedAnswer.Text = "";
+            result.Text = "";
         }
 
-        private void CalculateButton_Click(object sender, EventArgs e)
+        private void CalculateButton_Click(object? sender, EventArgs e)
         {
-            double weightlb = 0;
-
-            if (enteredWeight.Text != "" && enteredWeight.Text != ".")
+            if (enteredBodyWeight.Text != "" && enteredBodyWeight.Text != "." && enteredBodyWeight.Text != ".")
             {
-                if (whatUnit == "kg")
+                double weight;
+
+                if (weightSpinner.SelectedItem!.ToString() == "kg")
                 {
-                    weightlb = kgTolb(float.Parse(enteredWeight.Text, CultureInfo.InvariantCulture));
+                    if (double.Parse(enteredBodyWeight.Text!, CultureInfo.InvariantCulture) is double weightkg && weightkg == 0)
+                    {
+                        Toast.MakeText(Activity, "Weight has no value!", ToastLength.Short)!.Show();
+                        return;
+                    }
+
+                    weight = Formulas.KGToLB(weightkg);
                 }
-                else if (whatUnit == "lb")
+                else // if lb selected
                 {
-                    weightlb = float.Parse(enteredWeight.Text, CultureInfo.InvariantCulture);
+                    if (double.Parse(enteredBodyWeight.Text!, CultureInfo.InvariantCulture) is double weightlb && weightlb == 0)
+                    {
+                        Toast.MakeText(Activity, "Weight has no value!", ToastLength.Short)!.Show();
+                        return;
+                    }
+
+                    weight = weightlb;
                 }
 
                 //Corrected time = Wf x actual time(seconds)
-                if ((enteredWeight.Text != "") && (enteredTimeMin.Text != "" || enteredTimeSec.Text != "") && (enteredDistance.Text == ""))
+                if ((enteredMin.Text != "" || enteredSec.Text != "") && (enteredDistance.Text == ""))
                 {
-                    TimeSpan parsedTotalTime = CommonFunctions.ParseMinSecMS(enteredTimeMin.Text, enteredTimeSec.Text);
-                    double Wf = WeightFactor(weightlb);
-                    double correctedTime = Wf * parsedTotalTime.TotalSeconds;
-                    TimeSpan timeReadable = TimeSpan.FromSeconds(correctedTime);
-                    var TimeAsString = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
-                    adjustedLabel.Text = "Adjusted Time";
-                    adjustedAnswer.Text = TimeAsString;
+                    if (Helpers.ParseMinSecMS(enteredMin.Text!, enteredSec.Text!) is TimeSpan parsedSplitTime && parsedSplitTime.TotalSeconds == 0)
+                    {
+                        Toast.MakeText(Activity, "Split has no value!", ToastLength.Short)!.Show();
+                        return;
+                    }
+
+                    TimeSpan timeReadable = Formulas.TimeWeightAdjusted(weight, parsedSplitTime);
+                    resultLabel.Text = "Adjusted Time";
+                    result.Text = string.Format("{0}:{1}.{2}", (int)timeReadable.TotalMinutes, timeReadable.Seconds, timeReadable.Milliseconds);
                 }
                 //Corrected distance = actual distance / Wf
-                else if ((enteredWeight.Text != "") && (enteredDistance.Text != "") && (enteredTimeMin.Text == "" && enteredTimeSec.Text == ""))
+                else if ((enteredDistance.Text != "") && (enteredMin.Text == "" && enteredSec.Text == ""))
                 {
-                    double Wf = WeightFactor(weightlb);
-                    int distanceAsInt = int.Parse(enteredDistance.Text);
-                    double correctedDistance = distanceAsInt / Wf;
-                    adjustedLabel.Text = "Adjusted Distance";
-                    adjustedAnswer.Text = correctedDistance.ToString();
+                    if (int.Parse(enteredDistance.Text!) is int distance && distance == 0)
+                    {
+                        Toast.MakeText(Activity, "Distance has no value!", ToastLength.Short)!.Show();
+                        return;
+                    }
+
+                    resultLabel.Text = "Adjusted Distance";
+                    result.Text = Formulas.DistanceWeightAdjusted(weight, distance).ToString();
                 }
                 else
                 {
-                    Toast.MakeText(Activity, "Must enter either Time Or Distance.", ToastLength.Short).Show();
+                    Toast.MakeText(Activity, "Must enter either Time Or Distance.", ToastLength.Short)!.Show();
                 }
             }
             else
             {
-                Toast.MakeText(Activity, "Must enter Body Weight.", ToastLength.Short).Show();
+                Toast.MakeText(Activity, "Must enter body weight!", ToastLength.Short)!.Show();
             }
-        }
-
-        private static double WeightFactor(double bodyWeight)
-        {
-            return Math.Pow(bodyWeight / 270, 0.222);
-        }
-
-        private static double kgTolb(double bodyWeightKG)
-        {
-            return bodyWeightKG / 0.45359237;
         }
     }
 }

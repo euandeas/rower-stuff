@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bodyWeightCard"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    cardview:cardElevation="4dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mp_large"
+        android:orientation="vertical">
+        <TextView
+            android:text="@string/body_weight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mp_small"
+            android:id="@+id/bodyWeightLabel"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/enteredBodyWeight"
+                android:inputType="numberDecimal"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:maxLength="8"
+                android:paddingTop="0dp"
+                android:hint="@string/dist_hint"
+                android:textColorHint="@android:color/transparent"/>
+            <Spinner
+				android:id="@+id/weightUnitSpinner"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
