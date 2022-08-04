@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using AndroidX.AppCompat.App;
+using AndroidX.Core.View;
 using AndroidX.DrawerLayout.Widget;
 using AndroidX.Navigation;
 using AndroidX.Navigation.Fragment;
@@ -42,7 +43,10 @@ namespace RowerStuff
 
             SplashScreenX.InstallSplashScreen(this);
 
+
             base.OnCreate(savedInstanceState);
+
+            WindowCompat.SetDecorFitsSystemWindows(Window, false);
 
             SetContentView(Resource.Layout.activity_main);
 
