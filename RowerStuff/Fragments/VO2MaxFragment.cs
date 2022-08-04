@@ -37,7 +37,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "VO2 Max",
-                "This will estimate you VO2 Max. VO2 max is a measure of the maximum amount of oxygen your body can utilize during exercise. Real world testing will always give more accurate results.\n\nTo clear all data hold the calculate button.")
+                "This will estimate you VO2 Max. VO2 max is a measure of the maximum amount of oxygen your body can utilize during exercise. Real world testing will always give more accurate results.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView bodyWeightCard = view.FindViewById<CardView>(Resource.Id.bodyWeightCard);

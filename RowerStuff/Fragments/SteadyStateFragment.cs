@@ -31,7 +31,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Steady State",
-                "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.\n\nTo clear all data hold the calculate button.")
+                "Enter your 2KM personal best and this will give you the pace range you should hold for steady state work. This pace range is 50-60% of your avg 2KM wattage.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView splitCard = view.FindViewById<CardView>(Resource.Id.steadyStatePaceCard);

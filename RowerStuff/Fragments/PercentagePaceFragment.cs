@@ -33,7 +33,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Percentage Pace",
-                "Enter a split and the chosen percentage of that split, worked out using the wattage, will be returned.\n\nTo clear all data hold the calculate button.")
+                "Enter a split and the chosen percentage of that split, worked out using the wattage, will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);

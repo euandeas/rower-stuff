@@ -36,7 +36,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Weight Adjustment",
-                "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.\n\nTo clear all data hold the calculate button.")
+                "Enter a body weight and then enter either the total time or distance of a piece. The adjusted result corresponding to what you entered will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView bodyWeightCard = view.FindViewById<CardView>(Resource.Id.bodyWeightCard);

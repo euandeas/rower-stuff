@@ -32,7 +32,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Watts",
-                "Enter either splits or watts and it will be converted to the other.\n\nTo clear all data hold the calculate button.")
+                "Enter either splits or watts and it will be converted to the other.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView splitCard = view.FindViewById<CardView>(Resource.Id.splitCard);

@@ -33,7 +33,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Pace Prediction",
-                "This calculator uses Paul's Law to predict pace based on a previous results.\n\n Always follow your coaches advice first and foremost. This is only an estimate.\n\nEnter the distance and average pace of a previous result (e.g. your 2KM pace), along with the distance you want to predict for. The estimated pace for that distance will be returned.\n\nTo clear all data hold the calculate button.")
+                "This calculator uses Paul's Law to predict pace based on a previous results.\n\n Always follow your coaches advice first and foremost. This is only an estimate.\n\nEnter the distance and average pace of a previous result (e.g. your 2KM pace), along with the distance you want to predict for. The estimated pace for that distance will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView actualDistanceCard = view.FindViewById<CardView>(Resource.Id.actualDistanceCard);

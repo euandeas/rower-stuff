@@ -33,7 +33,7 @@ namespace RowerStuff.Fragments
             menuHost.AddMenuProvider(new Helpers.StandardInfoMenu(
                 Activity,
                 "Percentage Watts",
-                "Enter watts and the chosen percentage of the watts will be returned.\n\nTo clear all data hold the calculate button.")
+                "Enter watts and the chosen percentage of the watts will be returned.\n\nTo clear specific data hold on the specific card.\nTo clear all data hold the calculate button.")
                 , ViewLifecycleOwner, Lifecycle.State.Resumed);
 
             CardView wattsCard = view.FindViewById<CardView>(Resource.Id.wattsCard);
