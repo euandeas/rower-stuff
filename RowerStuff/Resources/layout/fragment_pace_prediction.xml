@@ -36,7 +36,7 @@
                     android:id="@+id/actualDistanceLabel"
                     android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
                 <include
-                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_distance"/>
             </LinearLayout>
@@ -63,7 +63,7 @@
                     android:id="@+id/actualSplitLabel"
                     android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
                 <include
-                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_time"/>
             </LinearLayout>
@@ -90,7 +90,7 @@
                     android:id="@+id/predictDistanceLabel"
                     android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
                 <include
-                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_distance"/>
             </LinearLayout>

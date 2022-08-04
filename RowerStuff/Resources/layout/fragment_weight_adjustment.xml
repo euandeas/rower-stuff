@@ -44,7 +44,7 @@
                     android:id="@+id/timeLabel"
                     android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
                 <include
-                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_time"
                     android:layout_marginBottom="@dimen/mp_small"/>
@@ -63,7 +63,7 @@
                     android:id="@+id/distanceLabel"
                     android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
                 <include
-                    android:layout_width="@dimen/data_entry_area"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_distance"/>
             </LinearLayout>

@@ -19,23 +19,23 @@
             android:id="@+id/bodyWeightLabel"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
         <LinearLayout 
-            android:layout_width="@dimen/data_entry_area"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/enteredBodyWeight"
                 android:inputType="numberDecimal"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
                 android:maxLength="8"
                 android:paddingTop="0dp"
-                android:layout_weight="1"/>
+                android:hint="@string/dist_hint"
+                android:textColorHint="@android:color/transparent"/>
             <Spinner
 				android:id="@+id/weightUnitSpinner"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-                android:layout_weight="0"/>
+				android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

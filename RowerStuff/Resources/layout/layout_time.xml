@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
     <EditText
         android:layout_width="wrap_content"
@@ -12,16 +12,14 @@
         android:textAppearance="?attr/textAppearanceTitleLarge"
         android:maxLength="2"
         android:paddingTop="0dp"
-        android:hint="@string/min_hint"
-        android:layout_weight="1"/>
+        android:hint="@string/min_hint"/>
     <TextView
         android:text="@string/colon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/mp_small"
         android:layout_marginRight="@dimen/mp_small"
-        android:textAppearance="?attr/textAppearanceHeadlineSmall"
-        android:layout_weight="0"/>
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,13 +28,11 @@
         android:textAppearance="?attr/textAppearanceTitleLarge"
         android:maxLength="6"
         android:paddingTop="0dp"
-        android:hint="@string/sec_hint"
-        android:layout_weight="2"/>
+        android:hint="@string/sec_hint"/>
     <TextView
         android:text="@string/minute_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/mp_medium"
-        android:textAppearance="?attr/textAppearanceHeadlineSmall"
-        android:layout_weight="0"/>
+        android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
 </LinearLayout>
