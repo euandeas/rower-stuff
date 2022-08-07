@@ -1,4 +1,7 @@
-﻿using Android.OS;
+﻿using Android.Content;
+using Android.Nfc;
+using Android.OS;
+using Android.Util;
 using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
@@ -14,6 +17,9 @@ namespace RowerStuff.Fragments
             ListPreference theme = (ListPreference)FindPreference("theme_preference")!;
 
             theme.PreferenceChange += Theme_PreferenceChange;
+
+            Preference mail = FindPreference("mail_preference")!;
+            mail.PreferenceClick += SendFeedback;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
@@ -42,6 +48,18 @@ namespace RowerStuff.Fragments
                     ((AppCompatActivity)Activity!).Delegate.SetLocalNightMode((Build.VERSION.SdkInt >= BuildVersionCodes.Q) ? AppCompatDelegate.ModeNightFollowSystem : AppCompatDelegate.ModeNightAutoBattery);
                     break;
             }
+        }
+
+        private void SendFeedback(object? sender, Preference.PreferenceClickEventArgs e)
+        {
+            try
+            {
+                StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse("mailto:euandeasapps@gmail.com")));
+            }
+            catch
+            {
+                Toast.MakeText(Activity, "No email client found!", ToastLength.Short)!.Show();
+            }           
         }
     }
 }

@@ -22,11 +22,9 @@
 	app:title="Feedback">
 
 		<Preference
+			app:key="mail_preference"
             android:title="Send Feedback"
             android:summary="via email">
-			<intent android:action="android.intent.action.VIEW"
-                    android:data="mailto:euandeasapps@gmail.com">
-			</intent>
 		</Preference>
 
 	</PreferenceCategory>
