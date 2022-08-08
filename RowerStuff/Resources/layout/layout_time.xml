@@ -10,7 +10,7 @@
         android:id="@+id/enteredMin"
         android:inputType="number"
         android:textAppearance="?attr/textAppearanceTitleLarge"
-        android:maxLength="2"
+        android:maxLength="4"
         android:paddingTop="0dp"
         android:hint="@string/min_hint"/>
     <TextView
