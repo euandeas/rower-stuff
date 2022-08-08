@@ -38,6 +38,7 @@
     <None Remove="Resources\menu\toolbar.xml" />
     <None Remove="Resources\navigation\nav_graph.xml" />
     <None Remove="Resources\values-night\styles.xml" />
+    <None Remove="Resources\values-v29\styles.xml" />
     <None Remove="Resources\values\colors.xml" />
     <None Remove="Resources\values\dimens.xml" />
     <None Remove="Resources\values\styles.xml" />
