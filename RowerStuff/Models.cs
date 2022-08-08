@@ -28,7 +28,7 @@ namespace RowerStuff.Models
             return TimeSpan.FromSeconds(split.TotalSeconds + (5 * Math.Log2(distanceToPredict / distance)));
         }
 
-        public static TimeSpan PercentagePace(TimeSpan split, int percent)
+        public static TimeSpan PercentagePace(TimeSpan split, double percent)
         {
             return WattsToPace(PaceToWatts(split) * (percent / 100));
         }
@@ -40,7 +40,7 @@ namespace RowerStuff.Models
 
         public static double PaceToWatts(TimeSpan split)
         {
-            return 2.8 / Math.Pow((split.TotalSeconds / 500), 3);
+            return 2.8 / Math.Pow(split.TotalSeconds / 500, 3);
         }
 
         public static TimeSpan WattsToPace(double watts)

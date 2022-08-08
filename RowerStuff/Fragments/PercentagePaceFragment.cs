@@ -83,7 +83,7 @@ namespace RowerStuff.Fragments
                 }
           
                 TimeSpan splitReadable = Formulas.PercentagePace(parsedSplitTime, percent);
-                result.Text = string.Format("{0}:{1}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
+                result.Text = string.Format("{0}:{1:D2}.{2}", (int)splitReadable.TotalMinutes, splitReadable.Seconds, splitReadable.Milliseconds);
                 
             }
             else
