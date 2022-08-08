@@ -1,7 +1,5 @@
 ﻿using Android.Content;
-using Android.Nfc;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
