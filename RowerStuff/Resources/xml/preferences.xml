@@ -33,15 +33,13 @@
 		app:key="about_category"
 		app:title="About">
 
-		<Preference app:title="Developer Site" >
-			<intent android:action="android.intent.action.VIEW"
-					android:data="https://euandeas.com" />
-		</Preference>
+		<Preference 
+			app:title="Developer Site" 
+			app:key="website_preference"/>
 
-		<Preference app:title="Privacy Policy" >
-			<intent android:action="android.intent.action.VIEW"
-					android:data="https://euandeas.com/privacy" />
-		</Preference>
+		<Preference 
+			app:title="Privacy Policy" 
+			app:key="privacy_preference"/>
 
 		<Preference
 		  app:key="version"

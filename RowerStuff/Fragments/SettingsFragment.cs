@@ -4,6 +4,7 @@ using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
 using Google.Android.Material.AppBar;
+using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace RowerStuff.Fragments
 {
@@ -18,6 +19,12 @@ namespace RowerStuff.Fragments
 
             Preference mail = FindPreference("mail_preference")!;
             mail.PreferenceClick += SendFeedback;
+
+            Preference website = FindPreference("website_preference")!;
+            website.PreferenceClick += OpenWebsite;
+
+            Preference privacy = FindPreference("privacy_preference")!;
+            privacy.PreferenceClick += OpenPrivacyPolicy;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup? container, Bundle? savedInstanceState)
@@ -50,14 +57,29 @@ namespace RowerStuff.Fragments
 
         private void SendFeedback(object? sender, Preference.PreferenceClickEventArgs e)
         {
+            StartNewIntent("mailto: euandeasapps@gmail.com", "No email client found!");        
+        }
+
+        private void OpenWebsite(object? sender, Preference.PreferenceClickEventArgs e)
+        {
+            StartNewIntent("https://euandeas.com", "No web browser found!");
+        }
+
+        private void OpenPrivacyPolicy(object? sender, Preference.PreferenceClickEventArgs e)
+        {
+            StartNewIntent("https://euandeas.com/privacy", "No web browser found!");
+        }
+
+        private void StartNewIntent(string url, string error)
+        {
             try
             {
-                StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse("mailto:euandeasapps@gmail.com")));
+                StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse(url)));
             }
             catch
             {
-                Toast.MakeText(Activity, "No email client found!", ToastLength.Short)!.Show();
-            }           
+                Toast.MakeText(Activity, error, ToastLength.Short)!.Show();
+            }
         }
     }
 }
