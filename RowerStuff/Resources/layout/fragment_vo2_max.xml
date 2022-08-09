@@ -1,68 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
-<ScrollView
+<LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout 
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        layout="@layout/toolbar"
+        android:layout_marginBottom="@dimen/mp_small"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/toolbar"
-            android:layout_marginBottom="@dimen/mp_small"/>
-    
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/card_body_weight"
-            android:layout_marginBottom="@dimen/mp_small"
-            android:layout_marginLeft="@dimen/mp_small"
-            android:layout_marginRight="@dimen/mp_small"/>
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/card_2k_time"
-            android:layout_marginBottom="@dimen/mp_small"
-            android:layout_marginLeft="@dimen/mp_small"
-            android:layout_marginRight="@dimen/mp_small"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/genderCard"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                cardview:cardElevation="4dp"
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/card_body_weight"
                 android:layout_marginBottom="@dimen/mp_small"
-                android:layout_marginLeft="@dimen/mp_small">
-                <LinearLayout
+                android:layout_marginLeft="@dimen/mp_small"
+                android:layout_marginRight="@dimen/mp_small"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/card_2k_time"
+                android:layout_marginBottom="@dimen/mp_small"
+                android:layout_marginLeft="@dimen/mp_small"
+                android:layout_marginRight="@dimen/mp_small"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/genderCard"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/mp_large"
-                    android:orientation="vertical">
-                    <TextView
-                        android:text="@string/gender_label"
+                    android:layout_height="fill_parent"
+                    cardview:cardElevation="4dp"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:layout_marginLeft="@dimen/mp_small">
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/mp_small"
-                        android:id="@+id/genderLabel"
-                        android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-                    <Spinner
-				        android:id="@+id/genderSpinner"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        android:layout_margin="@dimen/mp_large"
+                        android:orientation="vertical">
+                        <TextView
+                            android:text="@string/gender_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/mp_small"
+                            android:id="@+id/genderLabel"
+                            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                        <Spinner
+				            android:id="@+id/genderSpinner"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/trainingLevelCard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    cardview:cardElevation="4dp"
+                    android:layout_marginBottom="@dimen/mp_small"
+                    android:layout_marginLeft="@dimen/mp_small"
+                    android:layout_marginRight="@dimen/mp_small">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/mp_large"
+                        android:orientation="vertical">
+                        <TextView
+                            android:text="@string/training_level_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/mp_small"
+                            android:id="@+id/trainingLevelLabel"
+                            android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
+                        <Spinner
+				            android:id="@+id/traingLevelSpinner"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/trainingLevelCard"
+                android:id="@+id/vo2ResultCard"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 cardview:cardElevation="4dp"
@@ -75,54 +109,26 @@
                     android:layout_margin="@dimen/mp_large"
                     android:orientation="vertical">
                     <TextView
-                        android:text="@string/training_level_label"
+                        android:text="@string/vo2_result_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/mp_small"
-                        android:id="@+id/trainingLevelLabel"
+                        android:id="@+id/vo2ResultLabel"
                         android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-                    <Spinner
-				        android:id="@+id/traingLevelSpinner"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/vo2Result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/vo2ResultCard"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            cardview:cardElevation="4dp"
-            android:layout_marginBottom="@dimen/mp_small"
-            android:layout_marginLeft="@dimen/mp_small"
-            android:layout_marginRight="@dimen/mp_small">
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <include
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/mp_large"
-                android:orientation="vertical">
-                <TextView
-                    android:text="@string/vo2_result_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/mp_small"
-                    android:id="@+id/vo2ResultLabel"
-                    android:textAppearance="?attr/textAppearanceHeadlineSmall"/>
-                <TextView
-                    android:id="@+id/vo2Result"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceTitleLarge"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/button_calculate"
-            android:layout_marginLeft="@dimen/mp_small"
-            android:layout_marginRight="@dimen/mp_small"/>
-    </LinearLayout>
-</ScrollView>
+                layout="@layout/button_calculate"
+                android:layout_marginLeft="@dimen/mp_small"
+                android:layout_marginRight="@dimen/mp_small"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
