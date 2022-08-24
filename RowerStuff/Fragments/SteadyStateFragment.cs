@@ -65,8 +65,8 @@ namespace RowerStuff.Fragments
                     return;
                 }
 
-                TimeSpan splitReadable50 = Formulas.PercentagePace(parsedTotalTime, 50);
-                TimeSpan splitReadable60 = Formulas.PercentagePace(parsedTotalTime, 60);
+                TimeSpan splitReadable50 = Formulas.PercentagePace(parsedTotalTime/4, 50);
+                TimeSpan splitReadable60 = Formulas.PercentagePace(parsedTotalTime/4, 60);
 
                 var Split50AsString = string.Format("{0}:{1}.{2}", (int)splitReadable50.TotalMinutes, splitReadable50.Seconds, splitReadable50.Milliseconds);
                 var Split60AsString = string.Format("{0}:{1}.{2}", (int)splitReadable60.TotalMinutes, splitReadable60.Seconds, splitReadable60.Milliseconds);
