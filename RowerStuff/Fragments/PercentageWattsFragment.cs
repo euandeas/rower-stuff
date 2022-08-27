@@ -80,7 +80,7 @@ namespace RowerStuff.Fragments
                     return;
                 }
 
-                result.Text = Formulas.PercentageWatts(watts, percent).ToString();
+                result.Text = Math.Round(Formulas.PercentageWatts(watts, percent), 2).ToString();
             }
             else
             {
