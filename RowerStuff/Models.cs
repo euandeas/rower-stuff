@@ -33,7 +33,7 @@ namespace RowerStuff.Models
             return WattsToPace(PaceToWatts(split) * (percent / 100));
         }
 
-        public static double PercentageWatts(double watts, int percent)
+        public static double PercentageWatts(double watts, double percent)
         {
             return watts * (percent / 100);
         }
