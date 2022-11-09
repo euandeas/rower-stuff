@@ -4,7 +4,6 @@ using Android.Views;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
 using Google.Android.Material.AppBar;
-using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace RowerStuff.Fragments
 {
