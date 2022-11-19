@@ -20,12 +20,12 @@ namespace RowerStuff.Models
         //Calculate total time - time = split * (distance/500)
         public static TimeSpan TimeFromSplitDistance(TimeSpan split, int distance)
         {
-            return TimeSpan.FromMilliseconds(split.TotalMilliseconds * (distance / 500));
+            return TimeSpan.FromMilliseconds(split.TotalMilliseconds * ((double)distance / 500));
         }
 
         public static TimeSpan PaulsLaw(int distance, int distanceToPredict, TimeSpan split)
         {
-            return TimeSpan.FromSeconds(split.TotalSeconds + (5 * Math.Log2(distanceToPredict / distance)));
+            return TimeSpan.FromSeconds(split.TotalSeconds + (5 * Math.Log2((double)distanceToPredict / distance)));
         }
 
         public static TimeSpan PercentagePace(TimeSpan split, double percent)
