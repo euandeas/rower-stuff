@@ -43,7 +43,6 @@ namespace RowerStuff
 
             SplashScreenX.InstallSplashScreen(this);
 
-
             base.OnCreate(savedInstanceState);
 
             WindowCompat.SetDecorFitsSystemWindows(Window!, false);
